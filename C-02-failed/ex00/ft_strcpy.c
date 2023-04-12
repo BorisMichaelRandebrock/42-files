@@ -1,42 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/10 18:42:55 by brandebr          #+#    #+#             */
-/*   Updated: 2023/04/12 13:41:40 by brandebr         ###   ########.fr       */
+/*   Created: 2023/04/07 10:11:32 by brandebr          #+#    #+#             */
+/*   Updated: 2023/04/07 17:11:44 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_uppercase(char *str)
+char	*ft_strcpy(char *dest, char *src)
 {
 	int	i;
 
 	i = 0;
-	if (*str == '\0')
-		return (1);
-	while (str[i])
+	while (src[i])
 	{
-		if (str[i] >= 'A' && *(str + i) <= 'Z')
-		{
-					i++;
-			continue ;
-		}
-		return (0);
+		dest[i] = src[i];
+		i++;
 	}
-	return (1);
+	return (dest);
 }
 /*
-#include <unistd.h>
+void	ft_putstr(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != 0)
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+}
+
 int	main(void)
 {
-			write(1, "A", 1);
-		write(1, "n", 1);
-	char	string[] = "1";
-	char	string2[] = "TREFGH";
+	char	str[27] = "My name is Inigo Montoya..";
+	char	dest[27];
 
-	ft_str_is_uppercase(string);
-	ft_str_is_uppercase(string2);
+	ft_strcpy(dest, str);
+	ft_putstr(str);
 }*/

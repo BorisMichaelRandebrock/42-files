@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 12:54:36 by brandebr          #+#    #+#             */
-/*   Updated: 2023/04/11 13:10:49 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/04/12 13:37:11 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strlowcase(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] >= 'A' && str[i] < 'Z')
+		if (str[i] >= 'A' && *(str + i) <= 'Z')
 			str[i] = str[i] + 32;
 		i++;
 	}

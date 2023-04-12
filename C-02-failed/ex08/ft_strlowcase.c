@@ -1,42 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/10 18:42:55 by brandebr          #+#    #+#             */
-/*   Updated: 2023/04/12 13:41:40 by brandebr         ###   ########.fr       */
+/*   Created: 2023/04/11 12:54:36 by brandebr          #+#    #+#             */
+/*   Updated: 2023/04/11 13:10:49 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_uppercase(char *str)
+char	*ft_strlowcase(char *str)
 {
 	int	i;
 
 	i = 0;
-	if (*str == '\0')
-		return (1);
 	while (str[i])
 	{
-		if (str[i] >= 'A' && *(str + i) <= 'Z')
-		{
-					i++;
-			continue ;
-		}
-		return (0);
+		if (str[i] >= 'A' && str[i] < 'Z')
+			str[i] = str[i] + 32;
+		i++;
 	}
-	return (1);
+	return (str);
 }
 /*
-#include <unistd.h>
+#include <stdio.h>
 int	main(void)
 {
-			write(1, "A", 1);
-		write(1, "n", 1);
-	char	string[] = "1";
-	char	string2[] = "TREFGH";
+	char	string[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char	string2[] = "\n";
 
-	ft_str_is_uppercase(string);
-	ft_str_is_uppercase(string2);
+	printf("%s", string);
+	ft_strlowcase(string);
+	printf("%s", string2);
+	printf("%s", string);
 }*/

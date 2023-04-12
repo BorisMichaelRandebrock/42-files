@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 16:15:58 by brandebr          #+#    #+#             */
-/*   Updated: 2023/04/10 17:31:11 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/04/12 13:44:12 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_str_is_numeric(char *str)
 		return (1);
 	while (str[i])
 	{
-		if (*str >= '0' && *str <= '9')
+		if (str[i] >= '0' && *(str + i) <= '9')
 		{
 			i++;
 			continue ;
@@ -29,14 +29,19 @@ int	ft_str_is_numeric(char *str)
 	return (1);
 }
 /*
-int	main(void)
 #include <unistd.h>
-			write(1, "n", 1);
-		write(1, "*", 1);
+int	main(void)
 {
-	char	string[] = "0";
-	char	numb[] = "4";
+  char    string[] = "878780j776";
+      char    numb[] = "4";
 
-	ft_str_is_numeric(string);
-	ft_str_is_numeric(numb);
+      ft_str_is_numeric(string);
+      ft_str_is_numeric(numb);
+
+//      int*        x = direccion;
+  //    int        *x = valor;
+    //  char b
+     // &x != x
+
+      x = 00x00000
 }*/

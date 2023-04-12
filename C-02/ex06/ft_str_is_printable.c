@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 19:56:16 by brandebr          #+#    #+#             */
-/*   Updated: 2023/04/11 11:07:24 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/04/12 13:42:27 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_str_is_printable(char *str)
 		return (1);
 	while (str[i])
 	{
-		if (*str >= 32 && *str <= 126)
+		if (str[i] >= 32 && *(str + i) <= 126)
 		{
 					i++;
 			continue ;
@@ -29,9 +29,9 @@ int	ft_str_is_printable(char *str)
 	return (1);
 }
 /*
+#include <unistd.h>
 int	main(void)
 {
-#include <unistd.h>
 			write(1, "A", 1);
 		write(1, "n", 1);
 	char	string[] = "*<. B";

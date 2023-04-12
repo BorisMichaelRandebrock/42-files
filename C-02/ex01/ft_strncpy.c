@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 17:44:06 by brandebr          #+#    #+#             */
-/*   Updated: 2023/04/07 20:44:07 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/04/12 12:13:57 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,9 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 	unsigned int	i;
 
 	i = 0;
-	while (src[i])
+	while (src[i] && (i < n))
 	{
-		if ((i < n) || (src[i]))
-		{
 			dest[i] = src[i];
-		}
 			i++;
 	}
 	while (i < n)

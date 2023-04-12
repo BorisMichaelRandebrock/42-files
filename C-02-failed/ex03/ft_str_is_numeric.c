@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
+/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/10 18:42:55 by brandebr          #+#    #+#             */
-/*   Updated: 2023/04/12 13:41:40 by brandebr         ###   ########.fr       */
+/*   Created: 2023/04/10 16:15:58 by brandebr          #+#    #+#             */
+/*   Updated: 2023/04/10 17:31:11 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_uppercase(char *str)
+int	ft_str_is_numeric(char *str)
 {
 	int	i;
 
@@ -19,9 +19,9 @@ int	ft_str_is_uppercase(char *str)
 		return (1);
 	while (str[i])
 	{
-		if (str[i] >= 'A' && *(str + i) <= 'Z')
+		if (*str >= '0' && *str <= '9')
 		{
-					i++;
+			i++;
 			continue ;
 		}
 		return (0);
@@ -29,14 +29,14 @@ int	ft_str_is_uppercase(char *str)
 	return (1);
 }
 /*
-#include <unistd.h>
 int	main(void)
+#include <unistd.h>
+			write(1, "n", 1);
+		write(1, "*", 1);
 {
-			write(1, "A", 1);
-		write(1, "n", 1);
-	char	string[] = "1";
-	char	string2[] = "TREFGH";
+	char	string[] = "0";
+	char	numb[] = "4";
 
-	ft_str_is_uppercase(string);
-	ft_str_is_uppercase(string2);
+	ft_str_is_numeric(string);
+	ft_str_is_numeric(numb);
 }*/

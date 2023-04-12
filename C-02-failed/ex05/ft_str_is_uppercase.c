@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 18:42:55 by brandebr          #+#    #+#             */
-/*   Updated: 2023/04/12 13:41:40 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/04/10 19:08:00 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,21 @@ int	ft_str_is_uppercase(char *str)
 		return (1);
 	while (str[i])
 	{
-		if (str[i] >= 'A' && *(str + i) <= 'Z')
+		if (*str >= 'A' && *str <= 'Z')
 		{
+			write(1, "A", 1);
 					i++;
 			continue ;
 		}
+		write(1, "n", 1);
 		return (0);
 	}
 	return (1);
 }
 /*
-#include <unistd.h>
 int	main(void)
 {
+#include <unistd.h>
 			write(1, "A", 1);
 		write(1, "n", 1);
 	char	string[] = "1";

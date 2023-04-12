@@ -1,42 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/10 18:42:55 by brandebr          #+#    #+#             */
-/*   Updated: 2023/04/12 13:41:40 by brandebr         ###   ########.fr       */
+/*   Created: 2023/04/07 17:44:06 by brandebr          #+#    #+#             */
+/*   Updated: 2023/04/07 20:44:07 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_uppercase(char *str)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (src[i])
+	{
+		if ((i < n) || (src[i]))
+		{
+			dest[i] = src[i];
+		}
+			i++;
+	}
+	while (i < n)
+	{
+		dest[i] = '\0';
+	++i;
+	}
+	return (dest);
+}
+/*
+void	ft_putstr(char *str)
 {
 	int	i;
 
 	i = 0;
-	if (*str == '\0')
-		return (1);
 	while (str[i])
 	{
-		if (str[i] >= 'A' && *(str + i) <= 'Z')
-		{
-					i++;
-			continue ;
-		}
-		return (0);
+		write(1, &str[i], 1);
+		i++;
 	}
-	return (1);
 }
-/*
-#include <unistd.h>
+
 int	main(void)
 {
-			write(1, "A", 1);
-		write(1, "n", 1);
-	char	string[] = "1";
-	char	string2[] = "TREFGH";
+	char	str[11] = "Hola Anna";
+	char	dest[20];
 
-	ft_str_is_uppercase(string);
-	ft_str_is_uppercase(string2);
+	ft_strncpy(dest, str, 20);
+	ft_putstr(dest);
 }*/
