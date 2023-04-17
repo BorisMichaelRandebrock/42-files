@@ -1,39 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/13 12:06:27 by brandebr          #+#    #+#             */
-/*   Updated: 2023/04/14 10:16:27 by brandebr         ###   ########.fr       */
+/*   Created: 2023/04/16 10:03:15 by brandebr          #+#    #+#             */
+/*   Updated: 2023/04/16 10:33:35 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+#include <unistd.h>
+
+char	*ft_strncat(char *dest, char	*src, unsigned int nb)
 {
 	unsigned int	i;
-	int				diff;
+	char result[nb];
+	unsigned int	j;
 
 	i = 0;
-	while ((s1[i] || s2[i]) && n > i)
+	j = 0;
+	while (src[i])
 	{
-		if (s1[i] != *(s2 + i))
-		{
-			diff = s1[i] - *(s2 + i);
-			return (diff);
-		}
+		if (dest[i] == src[i] && nb > 0)
+				{
+					result[j] = src[i];
+ 					j++;	
+					write(1, &i, 1);
+				}
 		i++;
-		continue ;
 	}
 	return (0);
 }
-/*
+
 int	main(void)
 {
-	char	s1[] = "qwerty";
-	char	s2[] = "qwert";
+	char	src[] = "something";
+	char	dest[] = "me";
+	
+	ft_strncat(dest, src, 2);
 
-	ft_strncmp(s1, s2, 3);
+
 	return (0);
-}*/
+}

@@ -1,39 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/13 12:06:27 by brandebr          #+#    #+#             */
-/*   Updated: 2023/04/14 10:16:27 by brandebr         ###   ########.fr       */
+/*   Created: 2023/04/14 10:28:38 by brandebr          #+#    #+#             */
+/*   Updated: 2023/04/14 11:49:28 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+char	*ft_strcat(char	*dest, char *src)
 {
-	unsigned int	i;
-	int				diff;
+	int	i;
+	int	j;
 
 	i = 0;
-	while ((s1[i] || s2[i]) && n > i)
+	j = 0;
+	while (dest[i])
 	{
-		if (s1[i] != *(s2 + i))
-		{
-			diff = s1[i] - *(s2 + i);
-			return (diff);
-		}
 		i++;
-		continue ;
 	}
-	return (0);
+	while (src[j])
+	{
+		dest[i] = src[j];
+		i++;
+		j++;
+	}	
+	dest[i] = '\0';
+	return (dest);
 }
 /*
+#include <stdio.h>
+
 int	main(void)
 {
-	char	s1[] = "qwerty";
-	char	s2[] = "qwert";
+	char	dest[] = "The answer to everything is:";
+	char	src[] = "42 (*)...!";
 
-	ft_strncmp(s1, s2, 3);
+	printf("%s \n", ft_strcat(dest, src));
 	return (0);
 }*/
