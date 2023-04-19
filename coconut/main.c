@@ -1,40 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/17 14:05:18 by brandebr          #+#    #+#             */
-/*   Updated: 2023/04/17 16:41:34 by brandebr         ###   ########.fr       */
+/*   Created: 2023/04/19 10:05:19 by brandebr          #+#    #+#             */
+/*   Updated: 2023/04/19 11:10:24 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+#include <unistd.h>
+
+int	main(int argc, char **argv)
 {
-	unsigned int	i;
-	unsigned int	j;
+	int	i;
 
 	i = 0;
-	j = 0;
-	while (dest[i])
-		i++;
-	while (src[j] && j < nb)
+	if (argc <  2)
 	{
-		dest[i] = src[j];
-		i++;
-		j++;
+		write(1, "nope", 4);
+		return (0);
 	}
-	dest[i] = '\0';
-	return (dest);
+	while (argv[1][i])
+	{
+		write(1, &argv[1][i], 1);
+		write(1, "   ", 3);
+		//write(1, "\n", 1);
+		i++;
+	}
+	write(1, "\n", 1);
+	return (0);
 }
-/*
-#include <stdio.h>
-int    main(void)
-{
-    char    dest[] = "The answer to everything is:";
-    char    src[] = "42 (*)...!";
-
-    printf("%s \n", ft_strncat(dest, src, 2));
-    return (0);
-}*/
