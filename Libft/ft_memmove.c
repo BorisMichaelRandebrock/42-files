@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/08 15:46:33 by brandebr          #+#    #+#             */
-/*   Updated: 2023/05/09 10:23:45 by brandebr         ###   ########.fr       */
+/*   Created: 2023/05/09 12:03:56 by brandebr          #+#    #+#             */
+/*   Updated: 2023/05/09 16:15:49 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	size_t				i;
-	const unsigned char	*p = s;
+	unsigned char		*p_dst;
+	const unsigned char	*p_src;
 
 	i = 0;
-	while (i < n)
-	{
-		if (p[i] == (unsigned char)c)
-			return ((void *)(p + i));
-		i++;
-	}
-	return (NULL);
+	p_dst = (unsigned char *)dst;
+	p_src = (const unsigned char *)src;
+	if (!len || src == dst)
+		return (dst);
+	if (dst < src)
+		return (ft_memcpy(dst, src, len));
+	while (len--)
+		p_dst[len] = p_src[len];
+	return (dst);
 }
