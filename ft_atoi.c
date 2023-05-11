@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 10:00:27 by brandebr          #+#    #+#             */
-/*   Updated: 2023/05/11 10:17:12 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/05/10 15:39:40 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,22 @@ int	ft_atoi(const char *str)
 	i = 0;
 	sign = 1;
 	num = 0;
-	while (str[i] == '\r' || str[i] == '\t' || str[i] == '\v' || str[i] == '\f'
-		|| str[i] == ' ' || str[i] == '\n')
-		i++;
-	if (str[i] == '+' || str[i] == '-')
+	while (str[i])
 	{
 		if (str[i] == '-')
+		{
 			sign *= -1;
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		num = num * 10 + str[i] - '0';
-		i++;
+			i++;
+		}
+		if (str[i] < '0' || str[i] > '9')
+			i++;
+		else
+		{
+			num = num * 10 + str[i] - '0';
+			i++;
+			if (str[i] < '0' || str[i] > '9')
+				return (num * sign);
+		}
 	}
 	return (num * sign);
 }	
