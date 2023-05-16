@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/12 11:16:35 by brandebr          #+#    #+#             */
-/*   Updated: 2023/05/16 12:18:11 by brandebr         ###   ########.fr       */
+/*   Created: 2023/05/16 10:27:06 by brandebr          #+#    #+#             */
+/*   Updated: 2023/05/16 11:25:37 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	unsigned int	i;
-	char			*willy;
+	int		i;
+	int		j;
+	char	*willy;
 
 	i = 0;
-	if (start >= ft_strlen(s))
-		return (ft_strdup(""));
-	if (len > ft_strlen(s + start))
-		len = ft_strlen(s + start);
-	willy = (char *)ft_calloc(len + 1, sizeof(char));
+	j = 0;
+	willy = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!willy)
 		return (NULL);
-	if (ft_strlen(s) < start)
-		return (willy);
-	while ((i < len) && s[start] != '\0')
+	while (s1[i])
 	{
-		willy[i] = s[start];
+		willy[i] = s1[i];
 		i++;
-		start++;
 	}
+	while (s2[j])
+	{
+		willy[i] = s2[j];
+			i++;
+			j++;
+	}
+	willy[i] = '\0';
 	return (willy);
 }

@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 12:03:56 by brandebr          #+#    #+#             */
-/*   Updated: 2023/05/09 16:15:49 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/05/16 10:26:12 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t				i;
 	unsigned char		*p_dst;
 	const unsigned char	*p_src;
 
-	i = 0;
 	p_dst = (unsigned char *)dst;
 	p_src = (const unsigned char *)src;
 	if (!len || src == dst)
