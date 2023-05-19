@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:50:10 by brandebr          #+#    #+#             */
-/*   Updated: 2023/05/17 19:34:39 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/05/18 13:17:57 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,33 +44,31 @@ static char	**free_willy(char **willy, int i)
 static char	*word_dup(char const *s, char c)
 {
 	size_t	len;
-	char	*word;
+	char	*willy;
 
 	len = 0;
 	while (s[len] && s[len] != c)
 		len++;
-	word = (char *)malloc((len + 1) * sizeof(char));
-	if (!word)
+	willy = (char *)malloc((len + 1) * sizeof(char));
+	if (!willy)
 		return (NULL);
-	ft_strlcpy(word, s, len + 1);
-	return (word);
+	ft_strlcpy(willy, s, len + 1);
+	return (willy);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	int		i;
-	int		count;
+	int		words;
 	char	**willy;
 
 	i = 0;
-	count = word_counter(s, c);
-	willy = (char **)malloc(count + 1);
-	if (!willy)
+	words = word_counter(s, c);
+	willy = (char **)malloc((words + 1) * sizeof(char *));
+	if (!s || !willy)
 		return (NULL);
-	willy[count] = NULL;
-	if (!s)
-		return (NULL);
-	while (i < count)
+	willy[words] = NULL;
+	while (i < words)
 	{
 		while (*s && *s == c)
 			s++;
@@ -83,67 +81,3 @@ char	**ft_split(char const *s, char c)
 	}
 	return (willy);
 }
-	/*
-	int		i;
-	char	**willy;
-//	char	**retrn;
-
-//	retrn = NULL;
-	i = 0;
-	willy = malloc(ft_strlen(s) + 1);
-	if (!willy)
-		return (NULL);
-	while (s[i] != c)
-	{
-		willy[i] = s[i];
-		i++;
-	}
-	willy[i] = '\0';
-(void	free(willy);
-	willy = (char *)malloc(i * 1);
-	if (!willy)
-		return (NULL);
-
-	return (willy);
-*/
-/*
-static void	the_splitter(int i, char const *s, char c, char **willy )
-{
-	int	j;
-
-	j = 0;
-	while (s[j] && s[j] != c)
-		j++;
-	willy[i] = (char *)malloc(sizeof(char) * (j + 1));
-	if (!willy[i])
-		return ;
-	ft_memcpy(willy[i], s, j);
-	willy[i][j] = '\0';
-	s += j;
-	if (*s == c)
-		s++;
-	i++;
-}
-
-char	**ft_split(char const *s, char c)
-{
-	int		i;
-	char	**willy;
-
-	i = 0;
-	willy = (void *)malloc(sizeof(char *) * (ft_strlen(s) + 1));
-	if (!willy)
-		return (NULL);
-	i = 0;
-	while (*s)
-	{
-		the_splitter(i, s, c, willy);
-		i++;
-		while (*s && *s != c)
-            s++;
-        if (*s == c)
-            s++;
-	}
-	willy[i] = NULL;
-	return (willy);
-}*/
