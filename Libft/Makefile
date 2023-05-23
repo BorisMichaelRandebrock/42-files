@@ -6,13 +6,13 @@
 #    By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 10:48:21 by brandebr          #+#    #+#              #
-#    Updated: 2023/05/22 16:24:43 by brandebr         ###   ########.fr        #
+#    Updated: 2023/05/23 18:25:00 by brandebr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-FLAGS = -Wall -Wextra -Werror
+NAME_BONUS = .bonus
 
 SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c\
 	  ft_strlen.c ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c\
@@ -21,15 +21,28 @@ SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c\
 	  ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c\
 	  ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c\
 	  ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
+BONUS = ft_lstnew.c ft_lstadd_front.c
+
 OBJ = $(patsubst %.c, %.o, $(SRC))
+
+#OBJ_BONUS = ${BONUS: .c=.o}
+OBJ_BONUS = $(patsubst %.c, %.o, $(BONUS))
+
+CC = gcc
 
 all: $(NAME)
 
 %.o : %.c libft.h
-	gcc $(FLAGS) -c -o $@ $<
+	$(CC)  $(FLAGS) -c -o $@ $<
 
 $(NAME): $(OBJ)
-	ar rc $@ $^ 
+	ar rc $@ $^ $(NAME) 
+
+bonus: $(NAME_BONUS)
+
+$(NAME_BONUS): $(OBJ) $(OBJ_BONUS)
+	ar rc $(NAME) $(OBJ_BONUS)
+	@touch .bonus
 
 clean:
 	/bin/rm -f *.o
