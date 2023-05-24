@@ -6,7 +6,7 @@
 #    By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 10:48:21 by brandebr          #+#    #+#              #
-#    Updated: 2023/05/23 18:25:00 by brandebr         ###   ########.fr        #
+#    Updated: 2023/05/24 19:05:59 by brandebr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c\
 	  ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c\
 	  ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c\
 	  ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
-BONUS = ft_lstnew.c ft_lstadd_front.c
+BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c\
+	ft_lstadd_back.c
 
 OBJ = $(patsubst %.c, %.o, $(SRC))
 
