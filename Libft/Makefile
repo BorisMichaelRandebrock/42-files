@@ -6,7 +6,7 @@
 #    By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 10:48:21 by brandebr          #+#    #+#              #
-#    Updated: 2023/05/26 17:14:15 by brandebr         ###   ########.fr        #
+#    Updated: 2023/05/26 19:28:22 by brandebr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,5 +54,9 @@ fclean: clean
 	/bin/rm -f $(NAME)
 
 re: fclean all
+
+test:
+	$(CC) -g $(FLAGS) *.c -o tester
+	./tester
 
 .PHONY: all bonus clean fclean re
