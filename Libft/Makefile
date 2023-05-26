@@ -6,7 +6,7 @@
 #    By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 10:48:21 by brandebr          #+#    #+#              #
-#    Updated: 2023/05/25 15:35:34 by brandebr         ###   ########.fr        #
+#    Updated: 2023/05/26 17:14:15 by brandebr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,12 +29,14 @@ OBJ = $(patsubst %.c, %.o, $(SRC))
 #OBJ_BONUS = ${BONUS: .c=.o}
 OBJ_BONUS = $(patsubst %.c, %.o, $(BONUS))
 
-CC = gcc
+CC = cc
+
+FLAGS = -Wall -Werror -Wextra -I.
 
 all: $(NAME)
 
 %.o : %.c libft.h
-	$(CC)  $(FLAGS) -c -o $@ $<
+	$(CC)  $(FLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
 	ar rc $@ $^ $(NAME) 
@@ -52,3 +54,5 @@ fclean: clean
 	/bin/rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all bonus clean fclean re
