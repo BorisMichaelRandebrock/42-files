@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:50:10 by brandebr          #+#    #+#             */
-/*   Updated: 2023/05/18 13:17:57 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/06/13 13:01:03 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,3 +81,19 @@ char	**ft_split(char const *s, char c)
 	}
 	return (willy);
 }
+/*
+int	main(void)
+{
+	char	str[] = "Somwhere over the rainbow, way up high";
+	char	**result;
+
+	result = ft_split(str, ' ');
+	puts(result[0]);
+	printf("%s\n", result[1]);
+	puts(result[2]);
+	puts(result[3]);
+	puts(result[4]);
+	puts(result[5]);
+	puts(result[6]);
+	return (0);
+}*/

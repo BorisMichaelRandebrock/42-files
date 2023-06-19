@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 12:03:56 by brandebr          #+#    #+#             */
-/*   Updated: 2023/05/16 10:26:12 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/06/12 11:45:13 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,13 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		p_dst[len] = p_src[len];
 	return (dst);
 }
+/*
+int	main(void)
+{
+	char    str[] = "supercalifragilisticoespialidoso";
+	char	dst[] = "here i am already waiting for some results";
+
+	ft_memmove(dst, str, 5);
+	printf("%s", dst);
+	return (0);
+}*/

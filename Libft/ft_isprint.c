@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 17:03:18 by brandebr          #+#    #+#             */
-/*   Updated: 2023/05/03 17:20:00 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/06/09 15:42:20 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,3 +16,12 @@ int	ft_isprint(int c)
 {
 	return (c >= 32 && c <= 126);
 }
+/*
+int	main(void)
+{
+	int	printable;
+
+	printable = ft_isprint(' ');
+	printf("1 if it is a prinatble girl, 0 if it is unprintable boy %d", printable);
+	return (0);
+}*/

@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 17:24:22 by brandebr          #+#    #+#             */
-/*   Updated: 2023/05/09 13:32:47 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/06/12 11:00:23 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,15 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	}
 	return (dst);
 }
+/*
+int	main(void)
+{
+	char	str[] = "supercalifragilisticoespialidoso";
+	char	dst[6];
+
+	printf("before  memcpy src: %s", str);
+	printf("\n before memcpy dst: %s", dst);
+	ft_memcpy(dst, str, 5);
+	printf("\nafter memcpy: %s", dst);
+	return (0);
+}*/

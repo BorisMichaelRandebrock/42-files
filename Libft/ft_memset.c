@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 16:16:19 by brandebr          #+#    #+#             */
-/*   Updated: 2023/05/08 15:52:12 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/06/09 16:25:29 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,13 @@ void	*ft_memset(void *b, int c, size_t len)
 	}
 	return ((void *)b);
 }
+/*
+int	main(void)
+{
+	char	*new;
+	char	str[] = "supercalifragilisticoespialidoso";
+
+	new = ft_memset(str, '*', 5);
+	printf("%s", new);
+	return (0);
+}*/

@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 13:18:12 by brandebr          #+#    #+#             */
-/*   Updated: 2023/05/19 14:23:34 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/06/13 13:44:16 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,3 +85,13 @@ char	*ft_itoa(int n)
 	}
 	return (str);
 }
+/*
+int	main(void)
+{
+	printf("%s\n",ft_itoa(123456789));
+	printf("%s\n",ft_itoa(-2147483648));
+	printf("%s\n",ft_itoa(-123456789));
+	printf("%s\n",ft_itoa(0));
+	printf("%s\n",ft_itoa(000125));
+	return (0);
+}*/

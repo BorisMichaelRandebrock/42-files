@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 14:58:29 by brandebr          #+#    #+#             */
-/*   Updated: 2023/05/22 18:21:43 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/06/13 18:14:05 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,16 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	ft_putnbr_recursive(number, fd);
 }
+/*
+int	main(void)
+{
+	int	test;
+
+	test = open("example.txt", O_WRONLY);
+	ft_putnbr_fd(-2147483648, test);
+	return (0);
+}
+*/
 /*
 void	ft_putnbr_fd(int n, int fd)
 {

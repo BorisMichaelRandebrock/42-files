@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 10:00:27 by brandebr          #+#    #+#             */
-/*   Updated: 2023/05/11 10:17:12 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/06/12 19:06:39 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,13 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (num * sign);
-}	
+}
+/*
+int	main(void)
+{
+	char	str[] = "123456 df 44";
+
+	printf("%i", ft_atoi(str));
+	printf("\n%i", atoi(str));
+	return (0);
+}*/

@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 18:09:33 by brandebr          #+#    #+#             */
-/*   Updated: 2023/05/03 18:38:56 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/06/12 14:02:57 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,3 +19,10 @@ int	ft_toupper(int c)
 	else
 		return (c);
 }
+/*
+int	main(void)
+{
+	printf("%c", ft_toupper('b'));
+	return (0);
+}
+*/

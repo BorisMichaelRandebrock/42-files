@@ -2,3 +2,13 @@
 *.o
 *.a
 *.swp
+main.c
+libft.h.gch
+a.out*
+libft.a
+*.txt
+.bonus
+.main.c.swo
+tester
+tester.dSYM/
+.main.c

@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 11:16:35 by brandebr          #+#    #+#             */
-/*   Updated: 2023/05/16 12:18:11 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/06/13 10:52:33 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,3 +35,13 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	return (willy);
 }
+/*
+int	main(void)
+{
+	char	str[] = "supercalifragilisticoespialidoso";
+
+	char *result = ft_substr(str, 9, 6);
+	puts(result);
+	printf("\n%s", result);
+	return (0);
+}*/

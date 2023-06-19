@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 18:51:30 by brandebr          #+#    #+#             */
-/*   Updated: 2023/05/03 19:19:29 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/06/12 14:13:10 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,3 +19,12 @@ int	ft_tolower(int c)
 	else
 		return (c);
 }
+/*
+int	main(void)
+{
+	int	result;
+
+	result = ft_tolower('B');
+	printf("%c", result);
+	return (0);
+}*/

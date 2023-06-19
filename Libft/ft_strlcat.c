@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 16:17:08 by brandebr          #+#    #+#             */
-/*   Updated: 2023/05/18 12:30:54 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/06/12 13:25:58 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,3 +39,16 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 		return (ft_strlen(src) + dstsize);
 	return (ttl_len);
 }
+/*
+int	main(void)
+{
+	char    str[] = "supercalifragilisticoespialidoso";
+	char    dst[] = " here i am already waiting for some results";
+	int	result;
+
+	printf("\n %s \n %s", dst, str);
+	result = ft_strlcat(dst, str, 85);
+	printf("\n%d", result);
+	printf("\n %s \n %s", dst, str);
+	return (0);
+}*/
