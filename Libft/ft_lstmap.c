@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 14:39:40 by brandebr          #+#    #+#             */
-/*   Updated: 2023/06/19 19:21:50 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/06/20 10:43:41 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	}		
 	return (new_lst);
 }
-/*
+
 void	*add_one(void *num)
 {
 	int *n = (int *)num;
@@ -96,7 +96,27 @@ void	*string(void *str)
     }
 
     *r = '\0';
-    return res;
+    return (res);
+}
+
+void	*to_upper_case(void *c)
+{
+	char	*willy;
+	char	*result;; 
+	
+	willy = (char *)c;
+	if (!willy)
+		return NULL;
+	result = willy;
+	while (*willy)
+	{
+	if ((*willy >= 'a') && (*willy <= 'z'))
+		*willy = *willy -32;
+	else
+		*willy = *willy;
+	willy++;
+	}
+	return (result);
 }
 
 int	main(void)
@@ -106,9 +126,9 @@ int	main(void)
 	int	num1 = 1;
 	int	num2 = 2;
 	int	num3 = 3;
-	char	h = 'H';
-	char	a = 'A';
-	char	l = 'L';
+	char	h = 'h';
+	char	a = 'a';
+	char	l = 'l';
 
 
 	ft_lstadd_back(&list, ft_lstnew(&num1));
@@ -124,6 +144,8 @@ int	main(void)
 	t_list *new_str = ft_lstmap(someth, string, free);
 	print_list(new_list);
 	print_string(new_str);
+	t_list *upper =	ft_lstmap(new_str, to_upper_case, free);
+	print_string(upper);
 	if (new_list)
 	{
 		printf("Mapped list: ");
@@ -132,7 +154,7 @@ int	main(void)
 	return 0;
 }
 
-*/
+
 /* WORKING WIT FOR LOOP
 void *string(void *str)
 {
