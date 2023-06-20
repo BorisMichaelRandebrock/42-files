@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 14:39:40 by brandebr          #+#    #+#             */
-/*   Updated: 2023/06/20 10:43:41 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/06/20 11:15:50 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	}		
 	return (new_lst);
 }
-
+/*
 void	*add_one(void *num)
 {
 	int *n = (int *)num;
@@ -154,7 +154,7 @@ int	main(void)
 	return 0;
 }
 
-
+*/
 /* WORKING WIT FOR LOOP
 void *string(void *str)
 {
