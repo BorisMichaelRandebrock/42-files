@@ -1,0 +1,11 @@
+.DS_Store
+*.o
+*.swp
+a.out
+*.a
+*.txt
+*.swo
+.dSYM/
+a.out.dSYM/
+go
+go.dSYM/
