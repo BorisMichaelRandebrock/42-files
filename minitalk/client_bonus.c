@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 16:01:16 by brandebr          #+#    #+#             */
-/*   Updated: 2023/08/30 14:30:56 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/08/31 13:04:22 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void	send(int server_pid, char c)
+static void	sighandler(int sig)
+{
+	if (sig == SIG_0)
+	{
+		usleep(50);
+		ft_printf("bit 🎉 ");
+	}
+	else
+	{
+		ft_printf("message 👍");
+		exit (1);
+	}
+}
+
+static void	send(int server_pid, char c)
 {
 	int	bit;
 
@@ -23,14 +37,18 @@ void	send(int server_pid, char c)
 		{
 			if (kill(server_pid, SIG_0) == -1)
 				printf("upps...something is wrong ");
+			signal(SIG_0, &sighandler);
+			pause();
 		}
 		else
 		{
 			if (kill(server_pid, SIG_1) == -1)
 				printf("upps...something is wrong ");
+			signal(SIG_1, &sighandler);
+			pause();
 		}
 		bit++;
-		usleep (100);
+		usleep (200);
 	}
 }
 
@@ -53,7 +71,5 @@ int	main(int argc, char **argv)
 		send(pid, str[i]);
 		i++;
 	}
-	ft_printf("Message received 🖖\n");
-	fflush(stdout);
 	return (0);
 }

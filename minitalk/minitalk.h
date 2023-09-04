@@ -6,16 +6,18 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 12:22:00 by brandebr          #+#    #+#             */
-/*   Updated: 2023/07/29 12:25:13 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/08/29 14:01:08 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINITALK_H
-#define MINITALK_H
-#include <unistd.h>     // for write, pause, sleep, usleep
-#include <sys/types.h>  // for kill, getpid
-#include <stdlib.h>     // for malloc, free, exit
-#include <signal.h>     // for signal, sigemptyset, sigaddset, sigaction
-
+# define MINITALK_H
+# include <unistd.h>     
+# include <sys/types.h> 
+# include <stdlib.h>  
+# include <signal.h>
+# include "Libft/libft.h"
+# include "ft_printf/ft_printf.h"
+# define SIG_0 SIGUSR1
+# define SIG_1 SIGUSR2
 #endif
-
