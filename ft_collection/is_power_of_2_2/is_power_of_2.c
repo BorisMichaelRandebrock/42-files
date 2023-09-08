@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_list.c                                        :+:      :+:    :+:   */
+/*   is_power_of_2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/08 17:55:39 by brandebr          #+#    #+#             */
-/*   Updated: 2023/09/08 18:34:17 by brandebr         ###   ########.fr       */
+/*   Created: 2023/09/08 11:38:55 by brandebr          #+#    #+#             */
+/*   Updated: 2023/09/08 12:09:27 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list.h"
-
-t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
+int	    is_power_of_2(unsigned int n)
 {
-	int	swap;
-	t_list	*temp;
+	unsigned long	i;
+	unsigned long	m;
 
-	temp = lst;
-	while (lst->next)
-		if(((*cmp)(lst->data, lst->next->data)) == 0)
-		{
-			swap = lst->data;
-			lst->data = lst->next->data;
-			lst->next->data = swap;
-			lst = temp;
-		}
-		else
-			lst = lst->next;
-	lst = temp;
-	return (lst);
+	i = 1;
+	m = (unsigned long)n;
+	if (m == 0)
+		return (0);
+	else if	(m == 1)
+		return (1);
+	while (m > i)
+		i *= 2;
+	if (m == i)
+		return (1);
+	return (0);
+//lse (n & (n -1) == 0
 }
+/*
+ int	is_power_of_2(unsigned int n)
+{
+	if (n == 0) 
+	{
+	    	return 0;
+	}
+	return (n & (n - 1)) == 0;
+}
+*/

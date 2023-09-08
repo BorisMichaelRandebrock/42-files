@@ -1,33 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_list.c                                        :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/08 17:55:39 by brandebr          #+#    #+#             */
-/*   Updated: 2023/09/08 18:34:17 by brandebr         ###   ########.fr       */
+/*   Created: 2023/09/08 11:00:37 by brandebr          #+#    #+#             */
+/*   Updated: 2023/09/08 11:38:29 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list.h"
+#include <unistd.h>
+#include <stdlib.h>
 
-t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
+void	print(char c)
 {
-	int	swap;
-	t_list	*temp;
-
-	temp = lst;
-	while (lst->next)
-		if(((*cmp)(lst->data, lst->next->data)) == 0)
-		{
-			swap = lst->data;
-			lst->data = lst->next->data;
-			lst->next->data = swap;
-			lst = temp;
-		}
-		else
-			lst = lst->next;
-	lst = temp;
-	return (lst);
+	write(1, &c, 1);
 }
+
+char	*ft_strcpy(char *s1, char *s2)
+{
+	int	i;
+
+	i = 0;
+	while (s2[i])
+		{
+			s1[i] =  s2[i];
+			i++;
+		}
+	s1[i] = '\0';
+	return (s1);
+}
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	char *src = strdup("Hola q tal");
+	char *dest = malloc(1000);
+
+	dest = ft_strcpy(src, dest);
+}*/

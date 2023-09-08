@@ -1,57 +1,64 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rot_13.c                                           :+:      :+:    :+:   */
+/*   epur_str.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/06 11:24:33 by brandebr          #+#    #+#             */
-/*   Updated: 2023/09/06 12:30:43 by brandebr         ###   ########.fr       */
+/*   Created: 2023/09/06 13:47:31 by brandebr          #+#    #+#             */
+/*   Updated: 2023/09/06 16:01:43 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	main(int argc, char **argv)
+int	ft_strlen(char *str)
+{
+	int i;
+
+	i = 0;
+
+	while (str[i])
+		i++;
+	return (i);
+}
+
+int	nullcountr(char *str)
 {
 	int	i;
 
-	char c;
+	i = ft_strlen(str);
+	if (str[i] == 0)
+		i--;
+	while (str[i] == ' ')
+		i--;
+	return (i);
+}
+
+int	main(int argc, char **argv)
+{
+	int	i;
+	char	str;
+
 	i = 0;
 	if (argc != 2)
 	{
 		write(1, "\n", 1);
-		return(0);
+		return (0);
 	}
-	while (argv[1][i])
+	while (argv[1][i] == ' ')
+		i++;
+	while (argv[1][i] && i <= nullcountr(argv[1]))
 	{
-		c = argv[1][i];
-		if (c < 65 || c > 122)
-			write(1, &c, 1);
-		else if (c > 90 && c < 97)
-			write(1, &c, 1);
-		else if (c > 96 && c < 110)
+		str = argv[1][i];
+		if (argv[1][i + 1] == ' ' && str == ' ')
 		{
-			c += 13;
-			write(1, &c, 1);
+			i++;
+			continue ;
 		}
-		else if (c > 109 && c < 123)
-		{
-			c -= 13;
-			write(1, &c , 1);
-		}
-		else if (c > 64 && c < 78)
-		{
-			c += 13;
-			write(1, &c, 1);
-		}
-		else if (c > 77 && c < 91)
-		{
-			c -= 13;
-			write(1, &c , 1);
-		}
+		else 
+			write(1, &str, 1);
 		i++;
 	}
 	write(1, "\n", 1);
-	return (0);
 }
