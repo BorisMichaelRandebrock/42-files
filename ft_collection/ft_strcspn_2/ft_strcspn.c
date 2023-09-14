@@ -1,46 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   expand_str.c                                       :+:      :+:    :+:   */
+/*   ft_strcspn.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/12 16:29:41 by brandebr          #+#    #+#             */
-/*   Updated: 2023/09/12 18:31:58 by brandebr         ###   ########.fr       */
+/*   Created: 2023/09/12 15:57:42 by brandebr          #+#    #+#             */
+/*   Updated: 2023/09/12 16:24:06 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <string.h>
+#include <stdio.h>
 
-void	expand_str(char *str)
+size_t	ft_strcspn(const char *s, const char *reject)
 {
 	int	i;
-	int	flag;
+	int	j;
 
 	i = 0;
-	flag = 0;
-	while (str[i] == ' ' || str[i] == '\t')
-		i++;
-	while (str[i])
+	j = 0;
+	while (s[i])
 	{
-		if (str[i] == ' ' || str[i] == '\t')
-			flag = 1;
-		if (!(str[i] == ' ' || str[i] =='\t'))
-		{
-			if (flag)
-				write(1, "   ", 3);
-			flag = 0;
-			write(1, &str[i], 1);
-		}
-		i++;
+		if (s[i] == reject[j])
+			return (i);
+		else
+			i++;
 	}
+	return (i);
 }
-
-int	main(int argc, char **argv)
+/*
+int	main(void)
 {
-	if (argc == 2)
-		expand_str(argv[1]);
-	write(1, "\n", 1);
-	return (0);
-}
+	char	*str1 = "hello world";
+	char	*str2 = "hello world";
+	int	i;
 
+	i = ft_strcspn(str1, str2);
+	printf("%i", i);
+}*/

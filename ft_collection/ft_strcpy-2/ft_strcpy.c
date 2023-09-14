@@ -1,46 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   expand_str.c                                       :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/12 16:29:41 by brandebr          #+#    #+#             */
-/*   Updated: 2023/09/12 18:31:58 by brandebr         ###   ########.fr       */
+/*   Created: 2023/09/11 13:19:19 by brandebr          #+#    #+#             */
+/*   Updated: 2023/09/11 14:08:27 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-void	expand_str(char *str)
+char    *ft_strcpy(char *s1, char *s2)
 {
 	int	i;
-	int	flag;
 
 	i = 0;
-	flag = 0;
-	while (str[i] == ' ' || str[i] == '\t')
-		i++;
-	while (str[i])
-	{
-		if (str[i] == ' ' || str[i] == '\t')
-			flag = 1;
-		if (!(str[i] == ' ' || str[i] =='\t'))
+	while (s2[i])
 		{
-			if (flag)
-				write(1, "   ", 3);
-			flag = 0;
-			write(1, &str[i], 1);
+			s1[i] = s2[i];
+			i++;
 		}
-		i++;
-	}
+	s1[i] = '\0';
+	return (s1);
 }
 
-int	main(int argc, char **argv)
+int	main(void)
 {
-	if (argc == 2)
-		expand_str(argv[1]);
-	write(1, "\n", 1);
+	int	i;
+	char	*src = "somebody that I used to know";
+	char	*dest ;
+	
+	dest = "";
+	i = 0;
+	printf("%s Initial:", dest); 
+	printf("%s", strcpy(dest, src));
+//	printf("\n %s", dest); 
 	return (0);
 }
-

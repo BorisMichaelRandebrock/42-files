@@ -1,46 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   expand_str.c                                       :+:      :+:    :+:   */
+/*   alpha_mirror.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/12 16:29:41 by brandebr          #+#    #+#             */
-/*   Updated: 2023/09/12 18:31:58 by brandebr         ###   ########.fr       */
+/*   Created: 2023/09/14 12:01:07 by brandebr          #+#    #+#             */
+/*   Updated: 2023/09/14 12:18:14 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	expand_str(char *str)
+void	puts(char c)
 {
-	int	i;
-	int	flag;
-
-	i = 0;
-	flag = 0;
-	while (str[i] == ' ' || str[i] == '\t')
-		i++;
-	while (str[i])
-	{
-		if (str[i] == ' ' || str[i] == '\t')
-			flag = 1;
-		if (!(str[i] == ' ' || str[i] =='\t'))
-		{
-			if (flag)
-				write(1, "   ", 3);
-			flag = 0;
-			write(1, &str[i], 1);
-		}
-		i++;
-	}
+	write(1, &c, 1);
 }
 
-int	main(int argc, char **argv)
+
+
+void	alpha_mirror(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] >= 'a' &&  str[i]<= 'z')
+		{
+			puts('z' - (str[i] - 'a'));
+		}
+		else if (str[i] >= 'A' && str[i] <= 'Z')
+		{
+			puts('Z' - (str[i] - 'A'));
+		}
+		else 
+			puts(str[i]);
+		i++;
+	}	
+}
+
+int	 main(int argc, char **argv)
 {
 	if (argc == 2)
-		expand_str(argv[1]);
+		alpha_mirror(argv[1]);
 	write(1, "\n", 1);
 	return (0);
 }
-

@@ -1,46 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   expand_str.c                                       :+:      :+:    :+:   */
+/*   repeat_alpha.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/12 16:29:41 by brandebr          #+#    #+#             */
-/*   Updated: 2023/09/12 18:31:58 by brandebr         ###   ########.fr       */
+/*   Created: 2023/09/12 11:34:09 by brandebr          #+#    #+#             */
+/*   Updated: 2023/09/12 12:17:00 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	expand_str(char *str)
+void	puts(char c, int i)
+{
+	while (i > 0)
+	{
+		write(1, &c, 1);
+		i--;
+	}
+}
+
+void	repeat_alpha(char *str)
 {
 	int	i;
-	int	flag;
 
 	i = 0;
-	flag = 0;
-	while (str[i] == ' ' || str[i] == '\t')
-		i++;
 	while (str[i])
 	{
-		if (str[i] == ' ' || str[i] == '\t')
-			flag = 1;
-		if (!(str[i] == ' ' || str[i] =='\t'))
+		if (str[i] >= 'a' && str[i] <= 'z')
 		{
-			if (flag)
-				write(1, "   ", 3);
-			flag = 0;
-			write(1, &str[i], 1);
+			puts(str[i], str[i] + 1 - 'a');
 		}
+		else if (str[i] >= 'A' && str[i] <= 'Z')
+		{
+			puts(str[i], str[i] + 1 - 'A');
+		}
+		else
+			write(1, &str[i], 1);
 		i++;
 	}
 }
 
 int	main(int argc, char **argv)
 {
+	int	i;
+
+	i = 0;
 	if (argc == 2)
-		expand_str(argv[1]);
+		repeat_alpha(argv[1]);
 	write(1, "\n", 1);
 	return (0);
 }
-
