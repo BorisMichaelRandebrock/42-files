@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 10:27:06 by brandebr          #+#    #+#             */
-/*   Updated: 2023/06/13 10:54:01 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/09/27 17:58:45 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	while (s2[j])
 	{
 		willy[i] = s2[j];
-			i++;
-			j++;
+		i++;
+		j++;
 	}
 	willy[i] = '\0';
 	return (willy);

@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 14:39:40 by brandebr          #+#    #+#             */
-/*   Updated: 2023/06/20 11:15:50 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/09/27 17:57:56 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 			ft_lstadd_back(&new_lst, new_node);
 			lst = lst -> next;
 		}
-	}		
+	}
 	return (new_lst);
 }
 /*
