@@ -1,33 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_bits.c                                        :+:      :+:    :+:   */
+/*   print_bits.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/05 18:00:55 by brandebr          #+#    #+#             */
-/*   Updated: 2023/11/07 14:01:13 by brandebr         ###   ########.fr       */
+/*   Created: 2023/11/07 13:15:47 by brandebr          #+#    #+#             */
+/*   Updated: 2023/11/07 13:56:27 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-void	print_bits(unsigned char octet);
-
-unsigned char	swap_bits(unsigned char c)
+/*
+void	print_bits(unsigned char octet)
 {
-		return ((c >> 4) | (c << 4));
-		/*
-		   return ((c >> 4) | (c << 4));
-		   */}
+		int		i;
+		char	bit;
 
-int main(void)
-{
-		char c;
-
-		c = 1;
-		print_bits(c);
-		write(1, "\n" ,1);
-	 	c =	swap_bits(c);
-		print_bits(c);
-		return (0);
+		i = 8;
+		while (i--)
+		{
+				bit = ((octet >> i & 1) + '0');
+				write(1, &bit, 1);
+		}
 }
+*/
+void	print_bits(unsigned char octet)
+{
+		int		i;
+		char	bit;
+
+		i = 8;
+		while (i--)
+		{
+			bit = ((octet >>  i & 1) + '0');
+			write(1, &bit, 1);
+		}
+}
+/*
+int main (void)
+{
+	unsigned char i = 128;
+
+	print_bits(i);
+	return 0;
+}*/

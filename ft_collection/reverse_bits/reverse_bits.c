@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 18:24:30 by brandebr          #+#    #+#             */
-/*   Updated: 2023/11/06 18:40:52 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/11/07 13:32:01 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /*
@@ -28,7 +28,7 @@ unsigned char reverse_bits(unsigned char octet)
     unsigned char reversed = 0;
     int num_bits = 8;  // There are 8 bits in an unsigned char.
 
-    while  (num_bits >= 0)
+    while  (num_bits > 0)
     {
         reversed = (reversed << 1) | (octet & 1); // Shift and add the least significant bit.
         octet >>= 1; // Shift octet to the right to process the next bit.
