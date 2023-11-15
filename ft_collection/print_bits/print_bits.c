@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 13:15:47 by brandebr          #+#    #+#             */
-/*   Updated: 2023/11/07 13:56:27 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/11/08 12:02:14 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ void	print_bits(unsigned char octet)
 			write(1, &bit, 1);
 		}
 }
-/*
+
 int main (void)
 {
 	unsigned char i = 128;
 
 	print_bits(i);
 	return 0;
-}*/
+}

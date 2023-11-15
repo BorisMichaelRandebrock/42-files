@@ -1,56 +1,50 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/03 13:41:57 by brandebr          #+#    #+#             */
-/*   Updated: 2023/11/03 13:43:36 by brandebr         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-int ft_isblank(char c)
-{
-	if (c <= 32)
-		return (1);
-	return (0);
+int	check(char c)
+{	
+		if (c >= '0' && c <= '9')
+				return (1);
+		if (c >= 'A' && c <= 'F')
+				return (1);
+		if (c >= 'a' && c <= 'f')
+				return (1);
+		return (0);
 }
 
-int		ft_isvalid(char c, int base)
+int	ft_atoi_base/(const char *str, int str_base)
 {
-	char digits[17] = "0123456789abcdef";
-	char digits2[17] = "0123456789ABCDEF";
+		int		i;
+		int		res;
+		int		sign;	
 
-	while (base--)
-		if (digits[base] == c || digits2[base] == c)
-			return (1);
-	return (0);
+		i = 0;
+		res = 0;
+		sign = 1;
+
+		if (str[0] == '-')
+		{
+				sign *= -1;
+				i++;
+		}
+		while (str[i] &&  check(str[i]) == 1)
+		{
+				res *= str_base;
+				if (str[i] >= '0' && str[i] <= '9')
+						res += str[i] - '0';
+				else if (str[i] >= 'A' && str[i] <= 'F')
+						res += str[i] - '7';
+				else if (str[i] >= 'a' && str[i] <= 'f')
+						res += str[i] - 'W';
+				i++;
+		}
+		return (res * sign);
 }
+/*
+#include <stdio.h>
+#include <stdlib.h>
 
-int		ft_value_of(char c)
+int main(int argc, char **argv)
 {
-	if (c >= '0' && c <= '9')
-		return (c - '0');
-	else if (c >= 'a' && c <= 'f')
-		return (c - 'a' + 10);
-	else if (c >= 'A' && c <= 'F')
-		return (c - 'A' + 10);
-	return (0);
-}
-
-int		ft_atoi_base(const char *str, int str_base)
-{
-	int result;
-	int sign;
-
-	result = 0;
-	while (ft_isblank(*str))
-		str++;
-	sign = (*str == '-') ? -1 : 1;
-	(*str == '-' || *str == '+') ? ++str : 0;
-	while (ft_isvalid(*str, str_base))
-		result = result * str_base + ft_value_of(*str++);
-	return (result * sign);
-}
-
+	int	i;
+	(void)argc;
+		i = atoi(argv[2]);
+		printf("Returned: %i\n", ft_atoi_base(argv[1], i));
+}*/
