@@ -9,7 +9,7 @@ int	check(char c)
 		return (0);
 }
 
-int	ft_atoi_base/(const char *str, int str_base)
+int	ft_atoi_base(const char *str, int str_base)
 {
 		int		i;
 		int		res;
@@ -24,7 +24,7 @@ int	ft_atoi_base/(const char *str, int str_base)
 				sign *= -1;
 				i++;
 		}
-		while (str[i] &&  check(str[i]) == 1)
+		while (str[i]/* &&  check(str[i]) == 1*/)
 		{
 				res *= str_base;
 				if (str[i] >= '0' && str[i] <= '9')
@@ -37,7 +37,7 @@ int	ft_atoi_base/(const char *str, int str_base)
 		}
 		return (res * sign);
 }
-/*
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -47,4 +47,4 @@ int main(int argc, char **argv)
 	(void)argc;
 		i = atoi(argv[2]);
 		printf("Returned: %i\n", ft_atoi_base(argv[1], i));
-}*/
+}
