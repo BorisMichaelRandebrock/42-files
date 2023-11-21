@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 18:24:30 by brandebr          #+#    #+#             */
-/*   Updated: 2023/11/15 14:32:22 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/11/21 16:26:14 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /*
@@ -28,21 +28,28 @@
 
 void    printit(unsigned char octet)
 {
-		int		i;
-		char	bit;
+	int		i;
+	char	bit;
 
-		i = 8;
-		while(i--)
-		{
-				bit = ((octet >> i) & 1) + '0';
-				write(1, &bit, 1);
-		}
-		
+	i = 8;
+	bit = 0;
+	while (i--)
+	{
+			bit = ((octet >> i) & 1) + '0';
+			write(1, &bit, 1);
+	}
 }
 
 unsigned char   swap_bits(unsigned char octet)
 {
 		return ((octet >> 4) | (octet << 4));
+}
+
+int	is_potenciade_2(int n)
+{
+		if (n == 0)
+				return (0);
+		return (n & (n - 1)) == 0;
 }
 
 unsigned char reverse_bits(unsigned char octet)
@@ -55,9 +62,6 @@ unsigned char reverse_bits(unsigned char octet)
 				(((octet >> 5) & 1) << 2) |\
 				(((octet >> 6) & 1) << 1) |\
 				(((octet >> 7) & 1) << 0);
-
-
-
 
 
 
@@ -211,7 +215,48 @@ int	ft_strlen(char *s)
 }
 
  int last_word(char *str)
-{
+ { 
+		 int	i;
+		 int	start;
+
+		 i = 0;
+		 start = 0;
+		 while (str[i])
+		 {
+				 if (str[i] <= 32 && str[i + 1] > 32 && str[i + 1] <= 126)
+				 {
+						 start = i + 1;
+				 }
+				 i++;
+		 }
+		 while (str[start] && str[start] > 32 && str[start] <= 126)
+				 pu(str[start++]);
+		 return (0);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		 /*
 		int		i;
 		int		start;
 		int		len;
@@ -230,7 +275,7 @@ int	ft_strlen(char *s)
 		return (1);
 
 
-
+*/
 
 
 
