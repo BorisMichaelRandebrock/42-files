@@ -6,13 +6,42 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 12:56:13 by brandebr          #+#    #+#             */
-/*   Updated: 2023/11/23 13:22:26 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/11/23 19:27:52 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
 
+int	ft_atoi_base(const char *str, int str_base)
+{
+		return (0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 int		check(char c)
 {
 		if (c >= '0' && c <= '9')
@@ -51,7 +80,7 @@ int	ft_atoi_base(const char *str, int str_base)
 		}
 		return (res * sign);
 }
-
+*/
 int		main(int argc, char **argv)
 {
 		if (argc >= 2)

@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 16:35:51 by brandebr          #+#    #+#             */
-/*   Updated: 2023/11/23 18:07:23 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/11/23 19:32:50 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,48 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+char	*ft_itoa(int nbr)
+{
+		return (0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 int		leng(int n)
 {
 		int		i;
@@ -30,19 +72,6 @@ int		leng(int n)
 		}
 		return (i);
 }
-/*
-char	neg(int n)
-{
-		char	*number;
-
-		number = NULL; 
-		if (n == -2147483648)
-		{
-				number = "-2147483648";
-				return (number);
-		}
-		return (number);
-}*/
 
 char	*ft_itoa(int nbr)
 {
@@ -73,7 +102,7 @@ char	*ft_itoa(int nbr)
 		res[len] = nbr % 10 + '0';
 		return (res);
 }
-
+*/
 int	main(int argc, char **argv)
 {
 		int	puta;

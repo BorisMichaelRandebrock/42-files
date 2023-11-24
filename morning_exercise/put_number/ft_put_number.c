@@ -6,13 +6,42 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 15:40:55 by brandebr          #+#    #+#             */
-/*   Updated: 2023/11/23 16:34:25 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/11/23 19:35:14 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
 
+void	ft_putnbr(int n)
+{
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 void	ft_putnbr(int n)
 {
 	//	char	numbers[10] = "0123456789";
@@ -28,7 +57,7 @@ void	ft_putnbr(int n)
 				ft_putnbr(n / 10);
 		write(1, &numbers[n % 10], 1);
 }
-
+*/
 int	main(int argc, char **argv)
 {
 		int		bo;

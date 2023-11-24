@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 13:32:19 by brandebr          #+#    #+#             */
-/*   Updated: 2023/11/23 13:50:07 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/11/23 19:30:59 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,43 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void print_bit(unsigned char octet)
+{
+}
+
+unsigned char    swap_bits(unsigned char octet)
+{
+		return (0);
+}
+
+unsigned char   reverse_bits(unsigned char octet)
+{
+		return (0);
+}
+
+int	    is_power_of_2(unsigned int n)
+{
+		return (0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 void print_bit(unsigned char octet)
 {
 		int		i;
@@ -50,7 +87,7 @@ int	    is_power_of_2(unsigned int n)
 				return (0);
 		return (n & (n - 1)) == 0;
 }
-
+*/
 int main(int argc, char **argv)
 {
 		unsigned char octet = 0x26; // Example input: 0010 0110

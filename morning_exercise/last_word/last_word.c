@@ -6,12 +6,48 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 13:52:35 by brandebr          #+#    #+#             */
-/*   Updated: 2023/11/23 14:04:42 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/11/23 19:33:58 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
+void	last_word(char *str)
+{
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 void	boo(char c)
 {
 		write(1, &c, 1);
@@ -36,7 +72,7 @@ void	last_word(char *str)
 				start++;
 		}
 }
-
+*/
 int	main(int argc, char **argv)
 {
 		if (argc == 2)
