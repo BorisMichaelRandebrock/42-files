@@ -6,11 +6,20 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 13:52:35 by brandebr          #+#    #+#             */
-/*   Updated: 2023/11/23 19:33:58 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/11/28 13:08:48 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
+
+static void	bo(char c)
+{
+}
+
+static int		ok(char c)
+{
+}
 
 void	last_word(char *str)
 {
@@ -29,6 +38,117 @@ void	last_word(char *str)
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+static void	bo(char c)
+{
+		write(1, &c, 1);
+}
+
+static int		ok(char c)
+{
+		if (c > 32 && c < 127)
+				return (1);
+		return (0);
+}
+
+void	last_word(char *str)
+{
+		int		i;
+		int		start;
+
+		i = 0;
+		start = 0;
+		while (str[i])
+		{
+				if (!ok(str[i]) && ok(str[i + 1]))
+								start = i + 1;
+				i++;
+		}
+		while (str[start] && ok(str[start]))
+				bo(str[start++]);
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+void	bo(c)
+{
+	write(1, &c, 1);
+}
+
+int		ok(char c)
+{
+		if (c > 32 && c < 127)
+				return (1);
+		return (0);
+}
+void	last_word(char *str)
+{
+		int		i;
+		int		start;
+
+		i = 0;
+		start = 0;
+		while (str[i])
+		{
+				if (ok(str[i + 1]) && !ok(str[i]))
+					start = i + 1;
+				i++;
+		}
+		while (str[start] && ok(str[start]) == 1)
+		{
+				bo(str[start++]);
+		//		start++;
+		}
+}
+*/
 
 
 
