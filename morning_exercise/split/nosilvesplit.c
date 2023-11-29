@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 13:24:08 by brandebr          #+#    #+#             */
-/*   Updated: 2023/11/24 14:46:31 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/11/29 13:05:20 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 //contar paraules DONE
@@ -97,7 +97,7 @@ char    **flit(char *str)
 		words[j] = NULL;
 		return (words);
 }
-
+/*
 int main(void)
 {
 		int		idx;
@@ -113,6 +113,6 @@ int main(void)
 		}
 		printf("\n");
 		return(0);
-}
+}*/
 // https://github.com/ComlanGiovanni/42-Exam-Rank-02/blob/main/Level/Level%204/ft_split/ft_split.c
 // https://github.com/pasqualerossi/42-School-Exam-Rank-02/blob/main/Level%202/ft_strrev/ft_strrev.c
