@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 15:40:55 by brandebr          #+#    #+#             */
-/*   Updated: 2023/11/29 12:08:28 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/11/30 12:00:48 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,94 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+ void    ft_putnbr(int n)
+{
+		char	*num = "0123456789";
+
+		if (n > 9)
+				ft_putnbr(n / 10);
+		write(1, &num[n % 10], 1);
+}
+
+void	hex(int n, int base)
+{
+		char	*num = "0123456789abcdef";
+
+		if (n > base - 1)
+				(hex(n / base, base));
+		write(1, &num[n % base], 1);
+}
+
+int		ok(char c, int b)
+{
+		if (b == 2 && c > '1')
+				return (0);
+		if (b == 4  && c > '3')
+				return (0);
+		if (b == 8 && c > '7')
+				return (0);
+		if (b == 10 && c > '9')
+				return (0);
+		if (c >= '0' && c <= '9')
+				return (1);
+		if (c >= 'a' && c <= 'f')
+				return (1);
+		if (c >= 'A' && c <= 'F')
+				return (1);
+		return (0);
+}
+
+int		batoi(const char *str, int str_base)
+{
+		int		i;
+		int		sign;
+		int		res;
+
+		i = 0;
+		sign = 1;
+		res = 0;
+		if (str[i] < '-')
+		{
+				sign = -1;
+				i++;
+		}
+		while (str[i] && ok(str[i], str_base))
+		{
+				res *= str_base;
+				if (str[i] >= '0' && str[i] <= '9')
+						res += str[i] - '0';
+				if (str[i] >= 'a' && str[i] <= 'f')
+						res += str[i] - 'a' + 10;
+				if (str[i] >= 'A' && str[i] <= 'F')
+						res += str[i] - 'A' + 10;
+				i++;
+		}
+		return (res * sign);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 void	ft_putnbr(int n)
 {
 		char ns[] = "0123456789";
@@ -31,7 +119,7 @@ void	hex(int n, int base)
 				hex((n / base), base);
 		write(1, &hexs[n % base], 1);
 }
-
+*
 int		ok(char c, int b)
 {
 		if (b == 8 && c > '7')
@@ -71,7 +159,7 @@ int		batoi(const char *str, int str_base)
 		}
 		return (res * sign);
 }
-
+*/
 
 
 

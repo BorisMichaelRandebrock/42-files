@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 13:32:19 by brandebr          #+#    #+#             */
-/*   Updated: 2023/11/29 10:35:56 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/11/30 11:34:35 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,23 @@ unsigned char   reverse_bits(unsigned char octet)
 				(((octet >> 5) & 1) << 2) |\
 				(((octet >> 6) & 1) << 1) |\
 				(((octet >> 7) & 1) << 0);
+}
+
+unsigned char   reverse_bits(unsigned char octet)
+{
+		int		i;
+		int		j;
+		unsigned char	bit;
+
+		i = 0;
+		j = 7;
+		bit = '\0';
+		while (i < 8)
+		{
+				bit += (((octet >> i++) & 1) << j--);
+
+		}
+		return (bit);
 }
 
 int	    is_power_of_2(unsigned int n)
