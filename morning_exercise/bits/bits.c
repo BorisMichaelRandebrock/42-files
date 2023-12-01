@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 13:32:19 by brandebr          #+#    #+#             */
-/*   Updated: 2023/11/30 11:34:35 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/01 18:06:22 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ unsigned char    swap_bits(unsigned char octet)
 
 unsigned char   reverse_bits(unsigned char octet)
 {
+
 }
 
 int	    is_power_of_2(unsigned int n)

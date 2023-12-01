@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 15:40:55 by brandebr          #+#    #+#             */
-/*   Updated: 2023/11/30 12:00:48 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/01 18:38:33 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -199,16 +199,18 @@ void	ft_putnbr(int n)
 */
 int	main(int argc, char **argv)
 {
-		int		bo;
+		char		*bo;
+		int		some;
 		int		base;
 
-		bo = atoi(argv[1]);
-		base = atoi(argv[2]);
+		bo = argv[1];
+		some = atoi(argv[1]);
 		if (argc == 2)
-				ft_putnbr(bo);
-		else if (argc == 3)
+				ft_putnbr(some);
+		 if (argc == 3)
 		{
-				base = batoi(argv[1], base);
+				base = atoi(argv[2]);
+				base = batoi(bo , base);
 				printf("%i", base);
 			//	hex(bo, base);
 		}
