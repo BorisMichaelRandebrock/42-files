@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 18:17:06 by brandebr          #+#    #+#             */
-/*   Updated: 2023/12/01 13:20:04 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/01 14:24:16 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int compare_data(void *a, void *b) {
 int main() {
 		// Create a sample linked list
 		t_list *list = NULL;
-		int data[] = {30, 10, 20, 30, 40, 30, 50, 30};
+		int data[] = {30, 30, 10, 20, 30, 40, 30, 50, 30, 30};
 
 		for (unsigned long i = 0; i < sizeof(data) / sizeof(data[0]); i++) {
 				t_list *new_node = (t_list *)malloc(sizeof(t_list));
