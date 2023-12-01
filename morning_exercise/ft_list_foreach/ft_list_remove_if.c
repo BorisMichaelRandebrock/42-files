@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 18:17:06 by brandebr          #+#    #+#             */
-/*   Updated: 2023/12/01 12:59:33 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/01 13:20:04 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,20 @@ void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
 {
 		t_list	*aux;
 		t_list	*tmp;
-		t_list	*ini;
 		t_list	*prev;
 
 		prev = NULL;
 		aux = *begin_list;
-		ini = *begin_list;
 		while (aux)
 		{
 				if ((*cmp)(aux->data, data_ref) == 0)
 				{
 						tmp = aux;
 						if (prev == NULL)
-						{
 								*begin_list = aux->next;
-								aux = aux->next;
-						}
 						else
-						{	
 								prev->next = aux->next;
-								aux = aux->next;
-						}
+						aux = aux->next;
 						free(tmp);
 				}
 				else
