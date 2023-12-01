@@ -6,29 +6,46 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 18:17:06 by brandebr          #+#    #+#             */
-/*   Updated: 2023/11/30 19:28:24 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/01 12:59:33 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
+#include <stdio.h>
 
 void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
 {
 		t_list	*aux;
 		t_list	*tmp;
+		t_list	*ini;
+		t_list	*prev;
 
+		prev = NULL;
 		aux = *begin_list;
-		while (aux->next)
+		ini = *begin_list;
+		while (aux)
 		{
-				if ((*cmp)(aux->next->data, data_ref) == 0)
+				if ((*cmp)(aux->data, data_ref) == 0)
 				{
-						tmp = aux->next;
-						aux->next = aux->next->next;
+						tmp = aux;
+						if (prev == NULL)
+						{
+								*begin_list = aux->next;
+								aux = aux->next;
+						}
+						else
+						{	
+								prev->next = aux->next;
+								aux = aux->next;
+						}
 						free(tmp);
 				}
-				aux = aux->next;
+				else
+				{
+						prev = aux;
+						aux = aux->next;
+				}
 		}
-		//*begin_list = *aux;
 }
 
 int compare_data(void *a, void *b) {
@@ -42,7 +59,7 @@ int compare_data(void *a, void *b) {
 int main() {
 		// Create a sample linked list
 		t_list *list = NULL;
-		int data[] = {10, 20, 30, 40, 30, 50};
+		int data[] = {30, 10, 20, 30, 40, 30, 50, 30};
 
 		for (unsigned long i = 0; i < sizeof(data) / sizeof(data[0]); i++) {
 				t_list *new_node = (t_list *)malloc(sizeof(t_list));
