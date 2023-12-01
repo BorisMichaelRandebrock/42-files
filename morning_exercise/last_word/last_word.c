@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 13:52:35 by brandebr          #+#    #+#             */
-/*   Updated: 2023/11/30 17:19:38 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/01 19:39:15 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,20 @@ void	last_word(char *str)
 {
 		int		i;
 		int		start;
-		int		next;
-		int		flag;
+		//int		next;
+	//	int		flag;
 
 		i = 0;
-		flag = 0;
 		while (str[i])
+		{
+				if (!ok(str[i]) && ok(str[i + 1]))
+						start = i + 1;
+				i++;
+		}
+		while (ok(str[start]))
+				bo(str[start++]);
+	//	flag = 0;
+	/*	while (str[i])
 		{
 				if (!ok(str[i]) && ok(str[i + 1]))
 				{
@@ -42,8 +50,10 @@ void	last_word(char *str)
 						next = i;
 				}
 				i++;
-		}
-		i--;
+		while (str[start] &&  ok(str[start]))
+				bo(str[start++]);
+		}*/
+		/*i--;
 		next = i;
 		while ( next >= 0)
 		{
@@ -64,7 +74,7 @@ void	last_word(char *str)
 				i--;
 				flag = 0;
 				next = i;
-		}
+		}*/
 }
 
 int		main(int argc, char **argv)
