@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 10:18:48 by brandebr          #+#    #+#             */
-/*   Updated: 2023/11/30 12:24:24 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/04 14:18:50 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,54 @@
 #include <stdlib.h>
 
 
+int		max(int* tab, unsigned int len)
+{
+}
+
+int		main(void)
+{
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*		
 int		max(int* tab, unsigned int len)
 {
 		unsigned int	i;
@@ -40,7 +88,7 @@ int		main(void)
 		return (0);
 }
 
-
+*/
 
 
 

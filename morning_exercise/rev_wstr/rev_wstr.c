@@ -6,12 +6,13 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 17:22:23 by brandebr          #+#    #+#             */
-/*   Updated: 2023/11/30 17:25:43 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/04 15:12:59 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include <unistd.h>
+#include <stdio.h>
 
 
 static void	bo(char c)
@@ -26,6 +27,89 @@ static int		ok(char c)
 		return (0);
 }
 
+static int leng(char *s)
+{
+		int		i;
+
+		i = 0;
+		while (s[i])
+				i++;
+		return (i);
+}
+
+void    rev_wstr(char *str)
+{
+		int		len;
+		int		pr;
+		int		space;
+		int		start;
+
+		len = leng(str) -1;
+		space = 0;
+		start = 0;
+		while (str[start])
+		{
+				while  (!ok(str[start]))
+						start++;
+				break ;
+		}
+		while (len >= 0)
+		{
+				if (len == start)
+						space = 1;
+				if ((len == start) ||( !ok(str[len - 1]) && ok(str[len])))
+				{
+						pr = len;
+						while (ok(str[pr]))
+								bo(str[pr++]);
+						if (space == 0)
+								write(1, " ", 1);
+				}
+			//	printf("%i\n", len);
+				len--;
+		}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
 void	rev_wstr(char *str)
 {
 		int		i;
@@ -37,12 +121,12 @@ void	rev_wstr(char *str)
 		flag = 0;
 		while (str[i])
 		{
-	/*			if (!ok(str[i]) && ok(str[i + 1]))
-				{
-						start = i + 1;
-						next = i;
-				}
-	*/			i++;
+	//			if (!ok(str[i]) && ok(str[i + 1]))
+	//			{
+	//					start = i + 1;
+	//					next = i;
+	//			}
+	//			i++;
 		}
 		i--;
 		next = i;
@@ -67,7 +151,7 @@ void	rev_wstr(char *str)
 				next = i;
 		}
 }
-
+*/
 int		main(int argc, char **argv)
 {
 		if (argc == 2)

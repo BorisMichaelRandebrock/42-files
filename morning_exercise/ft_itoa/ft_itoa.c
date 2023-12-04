@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 16:35:51 by brandebr          #+#    #+#             */
-/*   Updated: 2023/11/29 12:43:48 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/04 12:38:59 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,93 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+int		lc(int nbr)
+{
+		int len;
+
+		len = 0;
+		if (nbr == -2147483648)
+				return (11);
+		if (nbr < 0)
+		{
+				len++;
+				nbr *= -1;
+		}
+		while (nbr > 0)
+		{
+				nbr /= 10;
+				len++;
+		}
+		return (len);
+}
+
+char	*ft_itoa(int nbr)
+{
+		int		len;
+		char	*res;
+
+		len = lc(nbr);
+		res = malloc(sizeof(char) * (len + 1));
+		{
+				if (!res)
+						free(res);
+		}
+		res[len] = '\0';
+		len--;
+		if (nbr == -2147483648)
+				return ("-2147483648");
+		if (nbr < 0)
+		{
+				nbr *= -1;
+				res[0] = '-';
+		}
+		while (nbr > 9)
+		{
+				res[len] = (nbr % 10) + '0';
+				nbr /= 10;
+				len--;
+		}
+		res[len] = (nbr % 10) + '0';
+		return (res);
+}
+
+int 	main(int argc, char **argv)
+{
+		int nbr;
+
+		nbr = atoi(argv[1]);
+//		printf("%i",lc(nbr));
+		if (argc == 2)
+				printf("%s",ft_itoa(nbr));
+		(void)argc;
+		(void)argv;
+		return (0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 int		count(int nbr)
 {
 		int		i;
@@ -81,7 +168,7 @@ int		main(int argc, char **argv)
 }
 
 
-
+*/
 
 
 
