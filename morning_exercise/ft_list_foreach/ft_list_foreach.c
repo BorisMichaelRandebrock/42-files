@@ -6,42 +6,42 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 17:59:22 by brandebr          #+#    #+#             */
-/*   Updated: 2023/12/04 13:11:48 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/06 16:23:33 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 
 void    ft_list_foreach(t_list *begin_list, void (*f)(void *))
+{
+		t_list	*aux;
 
+		aux = begin_list;
+		while (aux)
+		{
+				if (aux->data)
+						(*f)(aux->data);
+				aux = aux->next;
+		}
+}
 
+int		main(void)
+{
+		t_list	*n;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		n = malloc(sizeof(t_list));
+		n->data = ("Follow ");
+		n->next = malloc(sizeof(t_list));
+		n->next->data = ("the ");
+		n->next->next = malloc(sizeof(t_list));
+		n->next->next->data = ("white ");
+		n->next->next->next = malloc(sizeof(t_list));
+		n->next->next->next->data = ("rabbi");
+		n->next->next->next->next = malloc(sizeof(t_list));
+		n->next->next->next->next->data = (".");
+		ft_list_foreach(n, (void  *)printf);
+		return (0);
+}
 
 /*
 
@@ -77,8 +77,8 @@ int	main(void)
 		printf("\n");
 	return (0);
 }
-*/
 
+*/
 
 
 

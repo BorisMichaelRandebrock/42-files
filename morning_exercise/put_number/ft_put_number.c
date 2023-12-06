@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 15:40:55 by brandebr          #+#    #+#             */
-/*   Updated: 2023/12/01 18:38:33 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/06 16:05:43 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,68 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+ void    ft_putnbr(int n)
+{
+		char num[] = "0123456789";
+
+		if (n > 9)
+				ft_putnbr(n / 10);
+		write(1, &num[n % 10], 1);
+}
+
+void	hex(int n, int base)
+{
+		char *num = "0123456789abcdef";
+
+		if (n > base)
+				hex(n / base, base);
+		write(1, &num[n % base], 1);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
  void    ft_putnbr(int n)
 {
 		char	*num = "0123456789";
@@ -31,7 +93,7 @@ void	hex(int n, int base)
 				(hex(n / base, base));
 		write(1, &num[n % base], 1);
 }
-
+*/
 int		ok(char c, int b)
 {
 		if (b == 2 && c > '1')

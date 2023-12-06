@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 13:32:19 by brandebr          #+#    #+#             */
-/*   Updated: 2023/12/04 10:28:36 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/06 15:16:27 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,39 @@
 
 void print_bit(unsigned char octet)
 {
+		int		i;
+		char	carmelita;
+
+		i = 8;
+		while (i--)
+		{
+				carmelita = ((octet >> i) & 1) + '0';
+				write(1, &carmelita, 1);
+		}
 }
 
 unsigned char    swap_bits(unsigned char octet)
 {
+		return ((octet >> 4) | (octet << 4));
 }
 
 unsigned char   reverse_bits(unsigned char octet)
 {
+		return ((((octet >> 0) & 1) << 7) |\
+				(((octet >> 1) & 1) << 6) |\
+				(((octet >> 2) & 1) << 5) |\
+				(((octet >> 3) & 1) << 4) |\
+				(((octet >> 4) & 1) << 3) |\
+				(((octet >> 5) & 1) << 2) |\
+				(((octet >> 6) & 1) << 1) |\
+				(((octet >> 7) & 1) << 0));
 }
 
 int	    is_power_of_2(unsigned int n)
 {
-		
+		if (n == 0)
+				return (0);
+		return (n & (n - 1)) ==  0;
 }
 
 

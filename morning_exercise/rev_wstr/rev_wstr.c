@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 17:22:23 by brandebr          #+#    #+#             */
-/*   Updated: 2023/12/04 15:12:59 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/06 17:01:56 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,76 @@ static int leng(char *s)
 		return (i);
 }
 
+int	wc(char *s)
+{
+		int	ws;
+		int	i;
+
+		ws = 0;
+		i = 0;
+		while (s[i])
+		{
+				if ((i == 0 && ok(s[i])) || (ok(s[i]) && !ok(s[i -1])))
+						ws++;
+				i++;
+		}
+		return (ws);
+}
+
+int 	last(char *str/*, int len*/)
+{
+		int		i;
+		int		start;
+		int		length;
+
+
+		i = 0;
+		start = 0;
+		length = 0;
+		while (i < len)
+		{
+				if (ok(str[i]) && !ok(str[i - 1]))
+						start = i;
+				i++;
+		}
+		while (ok(str[start]))
+		{
+				bo(str[start]);
+				start++;
+				length++;
+		}
+		return (length);
+}
+
+void    rev_wstr(char *str)
+{
+		int		i;
+		int		start;
+		int		len;
+		int		words;
+		
+
+		i = 0;
+		len = leng(str);
+		words = wc(str);
+		start = 0;
+		while (len >= 0)
+		{
+			
+			if (ok(str[len]) && !ok(str[len - 1]))
+			{
+					start = len;
+					len -= last(str/*, len*/);
+					words--;
+			if (start > 0)
+					bo(' ');
+			}
+			len--;
+		}
+	printf("%i",wc(str));
+}
+
+/*
 void    rev_wstr(char *str)
 {
 		int		len;
@@ -65,11 +135,10 @@ void    rev_wstr(char *str)
 						if (space == 0)
 								write(1, " ", 1);
 				}
-			//	printf("%i\n", len);
 				len--;
 		}
 }
-
+*/
 
 
 
