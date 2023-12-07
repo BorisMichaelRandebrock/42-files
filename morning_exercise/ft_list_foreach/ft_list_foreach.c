@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 17:59:22 by brandebr          #+#    #+#             */
-/*   Updated: 2023/12/06 16:23:33 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/07 19:17:40 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,62 @@ void    ft_list_foreach(t_list *begin_list, void (*f)(void *))
 
 int		main(void)
 {
-		t_list	*n;
+		t_list	*lst;
 
-		n = malloc(sizeof(t_list));
-		n->data = ("Follow ");
-		n->next = malloc(sizeof(t_list));
-		n->next->data = ("the ");
-		n->next->next = malloc(sizeof(t_list));
-		n->next->next->data = ("white ");
-		n->next->next->next = malloc(sizeof(t_list));
-		n->next->next->next->data = ("rabbi");
-		n->next->next->next->next = malloc(sizeof(t_list));
-		n->next->next->next->next->data = (".");
-		ft_list_foreach(n, (void  *)printf);
+		lst = malloc(sizeof(t_list));
+		lst->data = ("Follow ");
+		lst->next = malloc(sizeof(t_list));
+		lst->next->data = ("the ");
+		lst->next->next= malloc(sizeof(t_list));
+		lst->next->next->data = ("white ");
+		lst->next->next->next = malloc(sizeof(t_list));
+		lst->next->next->next->data = ("rabbi.");
+		ft_list_foreach(lst,(void *) printf);
 		return (0);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 

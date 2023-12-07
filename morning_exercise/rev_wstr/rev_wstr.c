@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 17:22:23 by brandebr          #+#    #+#             */
-/*   Updated: 2023/12/06 17:01:56 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/07 12:08:56 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,55 @@
 #include <unistd.h>
 #include <stdio.h>
 
+void	ps(char c)
+{
+		write(1, &c, 1);
+}
 
+int		ok(char c)
+{
+		if (c > 32 && c < 127)
+				return (1);
+		return (0);
+}
+
+void	rev_wstr(char *s)
+{
+	int	wc = 0;
+	int	i = 0;
+	int	len;
+	int	start;
+
+	while (s[i])
+	{
+			if ((i == 0 &&  ok(s[i])) || (!ok(s[i - 1]) &&  ok(s[i])))
+					wc++;
+			i++;
+	}
+	i--;
+	while (s[i])
+	{
+		if (ok(s[i]))
+		{
+			len = 1;
+			while (i >= 0 && ok(s[i - 1]))
+			{
+					len++;
+					--i;
+			}
+			start = i;
+			wc--;
+			while (len--)
+					ps(s[start++]);
+			if (wc > 0)
+					ps(' ');
+		}
+		i--;
+	}
+}
+
+
+/*
 static void	bo(char c)
 {
 		write(1, &c, 1);
@@ -53,7 +101,7 @@ int	wc(char *s)
 		return (ws);
 }
 
-int 	last(char *str/*, int len*/)
+int 	last(char *str, int len)
 {
 		int		i;
 		int		start;
@@ -96,7 +144,7 @@ void    rev_wstr(char *str)
 			if (ok(str[len]) && !ok(str[len - 1]))
 			{
 					start = len;
-					len -= last(str/*, len*/);
+					len -= last(str, len);
 					words--;
 			if (start > 0)
 					bo(' ');
@@ -106,7 +154,7 @@ void    rev_wstr(char *str)
 	printf("%i",wc(str));
 }
 
-/*
+
 void    rev_wstr(char *str)
 {
 		int		len;
@@ -138,46 +186,9 @@ void    rev_wstr(char *str)
 				len--;
 		}
 }
-*/
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
 
 void	rev_wstr(char *str)
 {
@@ -225,7 +236,7 @@ int		main(int argc, char **argv)
 {
 		if (argc == 2)
 				rev_wstr(argv[1]);
-		bo('\n');
+		ps('\n');
 		return (0);
 }
 

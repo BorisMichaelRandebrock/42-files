@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 16:35:51 by brandebr          #+#    #+#             */
-/*   Updated: 2023/12/06 14:22:09 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/07 13:30:51 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int		nc(int n)
+
+int		count(int n)
 {
 		int		c;
 
@@ -28,31 +29,34 @@ int		nc(int n)
 		}
 		while (n > 0)
 		{
-				c++;
 				n /= 10;
+				c++;
 		}
-		return (c);
+		return (c);	
 }
 
 char    *ft_itoa(int nbr)
 {
-		int		i;
-		int		len;
 		char	*res;
+		int		len;
+		int		i;
 
 		i = 0;
-		len = nc(nbr);
+		len = count(nbr);
 		res = malloc(sizeof(char) * (len + 1));
 		if (!res)
 				free(res);
 		res[len] = '\0';
 		len--;
 		if (nbr == -2147483648)
-				return ("-2147483648");
+		{
+				res ="-2147483648";
+				return (res);
+		}
 		if (nbr < 0)
 		{
-			nbr *= -1;
-			res[0] = '-';
+				nbr *= -1;
+				res[0] = '-';
 		}
 		while (nbr > 9)
 		{
@@ -61,32 +65,27 @@ char    *ft_itoa(int nbr)
 				len--;
 		}
 		res[len] = (nbr % 10) + '0';
-		return (res);
+		return (res); 
 }
 
-int	main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
-		int		num;
+		int		n;
+	//	int		nc;
+		char	*res;
 
-
+		n = 0;
+		res = NULL;
 		if (argc == 2)
 		{
-				num = atoi(argv[1]);
-				printf("%s", ft_itoa(num));
+				n = atoi(argv[1]);
+		//		nc = count(n);
+		//		printf("%i", nc);
+				res = ft_itoa(n);
+				printf("%s", res);
 		}
 		return (0);
 }
-
-
-
-
-
-
-
-
-
-
-
 
 /*
 int		nc(int n)

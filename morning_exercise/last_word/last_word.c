@@ -6,12 +6,17 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 13:52:35 by brandebr          #+#    #+#             */
-/*   Updated: 2023/12/06 15:49:31 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/07 14:06:28 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
+
+void	pu(char c)
+{
+		write(1, &c, 1);
+}
 
 int		ok(char c)
 {
@@ -19,7 +24,6 @@ int		ok(char c)
 				return (1);
 		return (0);
 }
-
 
 void	last_word(char *str)
 {
@@ -30,27 +34,21 @@ void	last_word(char *str)
 		start = 0;
 		while (str[i])
 		{
-				if (!ok(str[i]) && ok(str[i +1]))
+				if (!ok(str[i]) && ok(str[i + 1]))
 						start = i + 1;
 				i++;
 		}
 		while (ok(str[start]))
-						write(1, &str[start++], 1);
+				pu(str[start++]);
 }
 
-int		main(int argc, char **argv)
+int		main(int argc, char  **argv)
 {
 		if (argc == 2)
 				last_word(argv[1]);
-		printf("\n");
+		pu('\n');
 		return (0);
 }
-
-
-
-
-
-
 
 
 

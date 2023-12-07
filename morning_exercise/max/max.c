@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 10:18:48 by brandebr          #+#    #+#             */
-/*   Updated: 2023/12/06 16:54:01 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/07 14:14:47 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,25 @@
 
 int		max(int* tab, unsigned int len)
 {
+		unsigned int	i;
+		int	max;
+
+		max = tab[0];
+		i = 0;
+		while (i < len)
+		{
+				if (max < tab[i])
+						max = tab[i];
+				i++;
+		}
+		return (max);
 }
 
 int		main(void)
 {
+		int		ar[] = {5, 35, 94};
+		printf("the max number is: %i",max(ar, 3));
+		return (0);
 }
 
 

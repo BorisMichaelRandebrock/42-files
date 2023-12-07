@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 14:43:38 by brandebr          #+#    #+#             */
-/*   Updated: 2023/12/04 14:22:50 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/07 10:40:48 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ok(char c)
 				return (1);
 		return (0);
 }
-/*
+
 int main(int argc, char **argv)
 {
 	int start;
@@ -51,7 +51,7 @@ int main(int argc, char **argv)
 		}
 	}
 	write(1, "\n", 1);
-}*/
+}
 /*
 int main(int argc, char **argv)
 {

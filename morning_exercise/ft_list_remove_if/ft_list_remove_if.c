@@ -6,13 +6,165 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 18:17:06 by brandebr          #+#    #+#             */
-/*   Updated: 2023/12/06 16:39:55 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/07 19:41:16 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 #include <stdio.h>
 
+void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
+{
+		t_list	*aux;
+		t_list	*del;
+		t_list	*prev;
+
+		aux = *begin_list;
+		prev = NULL;
+		while (aux)
+		{
+				if ((*cmp)(aux->data, data_ref) == 0)
+				{
+						del = aux;
+						if (prev == NULL)
+								*begin_list = aux->next;
+						else
+								prev->next = aux->next;
+						free(del);
+						aux = aux->next;
+				}
+				else
+				{
+						prev = aux;
+						aux = aux->next;
+				}
+		}
+}
+/*
+int cmp_func(int d1, int d2)
+{
+		return ((int)d1 - d2);
+}
+i*/
+int cmp_func(void *a, void *b) 
+{
+    return *(int *)a - *(int *)b;
+}
+
+int main(void)
+{
+    t_list *lst = malloc(sizeof(t_list));
+    lst->data = malloc(sizeof(int)), *(int *)(lst->data) = 42;
+    lst->next = malloc(sizeof(t_list));
+    lst->next->data = malloc(sizeof(int)), *(int *)(lst->next->data) = 17;
+    lst->next->next = malloc(sizeof(t_list));
+    lst->next->next->data = malloc(sizeof(int)), *(int *)(lst->next->next->data) = 42;
+//	int	data_ref = 42;
+    ft_list_remove_if(&lst,  &(int){42} , cmp_func);
+
+    for (t_list *temp = lst; temp; temp = temp->next)
+        printf("%d ", *(int *)(temp->data));
+    printf("\n");
+
+    while (lst)
+    {
+        t_list *temp = lst->next;
+        free(lst->data), free(lst);
+        lst = temp;
+    }
+
+    return 0;
+}
+
+/*
+int main(void)
+{
+    // Create a simple linked list
+    t_list *lst = malloc(sizeof(t_list));
+    lst->data = malloc(sizeof(int));
+    *(int *)(lst->data) = 42;
+
+    lst->next = malloc(sizeof(t_list));
+    lst->next->data = malloc(sizeof(int));
+    *(int *)(lst->next->data) = 17;
+
+    lst->next->next = malloc(sizeof(t_list));
+    lst->next->next->data = malloc(sizeof(int));
+    *(int *)(lst->next->next->data) = 42;
+
+    // Print the list before removal
+    t_list *temp = lst;
+    while (temp)
+    {
+        printf("%d ", *(int *)(temp->data));
+        temp = temp->next;
+    }
+    printf("\n");
+
+    // Remove nodes with data equal to 42
+    int data_ref = 42;
+    ft_list_remove_if(lst->data, &data_ref, cmp_func);
+
+    // Print the list after removal
+    temp = lst;
+    while (temp)
+    {
+        printf("%d ", *(int *)(temp->data));
+        temp = temp->next;
+    }
+    printf("\n");
+
+    // Free the allocated memory
+    while (lst)
+    {
+        t_list *temp = lst->next;
+        free(lst->data);
+        free(lst);
+        lst = temp;
+    }
+
+    return 0;
+}
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
 {
 		t_list	*aux;
@@ -41,7 +193,7 @@ void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
 		}
 }
 
-
+*/
 
 
 
@@ -171,6 +323,7 @@ void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
 		}
 }
 */
+/*
 int compare_data(void *a, void *b) {
 		// You can define your own comparison logic here
 		// For this example, we'll compare integers
@@ -182,8 +335,8 @@ int compare_data(void *a, void *b) {
 int main() {
 		// Create a sample linked list
 		t_list *list = NULL;
-	///	int data[] = {30, 30, 10, 20, 30, 40, 30, 50, 30, 30};
-		int data[] = {20, 20, 30};
+	int data[] = {30, 30, 10, 20, 30, 40, 30, 50, 30, 30};
+//		int data[] = {20, 20, 30};
 
 		for (unsigned long i = 0; i < sizeof(data) / sizeof(data[0]); i++) {
 				t_list *new_node = (t_list *)malloc(sizeof(t_list));
@@ -219,4 +372,4 @@ int main() {
 		// Free memory (not shown in this example, but it's important to free allocated memory)
 
 		return 0;
-}
+}*/
