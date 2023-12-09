@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 15:40:55 by brandebr          #+#    #+#             */
-/*   Updated: 2023/12/06 16:05:43 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/08 09:58:00 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,21 @@
 
  void    ft_putnbr(int n)
 {
-		char num[] = "0123456789";
+		char	*num = "0123456789";
 
 		if (n > 9)
 				ft_putnbr(n / 10);
 		write(1, &num[n % 10], 1);
 }
 
-void	hex(int n, int base)
+void	hex(int n/*, int basei*/)
 {
-		char *num = "0123456789abcdef";
+		char	num[] = "0123456789abcdef";
 
-		if (n > base)
-				hex(n / base, base);
-		write(1, &num[n % base], 1);
+		if (n > 16)
+				hex(n / 16);
+		write(1, &num[n % 16], 1);
+		
 
 }
 
@@ -273,6 +274,7 @@ int	main(int argc, char **argv)
 		{
 				base = atoi(argv[2]);
 				base = batoi(bo , base);
+				hex(base);
 				printf("%i", base);
 			//	hex(bo, base);
 		}

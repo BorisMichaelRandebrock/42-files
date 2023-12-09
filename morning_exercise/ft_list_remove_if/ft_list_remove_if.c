@@ -6,19 +6,19 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 18:17:06 by brandebr          #+#    #+#             */
-/*   Updated: 2023/12/07 19:41:16 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/09 09:33:31 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 #include <stdio.h>
-
+/*
 void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
 {
 		t_list	*aux;
 		t_list	*del;
 		t_list	*prev;
-
+		
 		aux = *begin_list;
 		prev = NULL;
 		while (aux)
@@ -30,8 +30,8 @@ void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
 								*begin_list = aux->next;
 						else
 								prev->next = aux->next;
-						free(del);
 						aux = aux->next;
+						free(del);
 				}
 				else
 				{
@@ -39,29 +39,31 @@ void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
 						aux = aux->next;
 				}
 		}
-}
+}*/
 /*
-int cmp_func(int d1, int d2)
+int cmp_func(int *a, int *b) 
 {
-		return ((int)d1 - d2);
-}
-i*/
-int cmp_func(void *a, void *b) 
-{
-    return *(int *)a - *(int *)b;
+    return *a - *b;
 }
 
 int main(void)
 {
     t_list *lst = malloc(sizeof(t_list));
-    lst->data = malloc(sizeof(int)), *(int *)(lst->data) = 42;
+
+	lst->data = malloc(sizeof(int)), *(int *)(lst->data) = 42;
     lst->next = malloc(sizeof(t_list));
     lst->next->data = malloc(sizeof(int)), *(int *)(lst->next->data) = 17;
     lst->next->next = malloc(sizeof(t_list));
     lst->next->next->data = malloc(sizeof(int)), *(int *)(lst->next->next->data) = 42;
-//	int	data_ref = 42;
-    ft_list_remove_if(&lst,  &(int){42} , cmp_func);
+	int	data_ref = 42;
+    ft_list_remove_if(&lst, &data_ref , cmp_func);
 
+	while (lst)
+	{
+			printf("%i", *(int*)lst->data);
+			lst = lst->next;
+	}
+		
     for (t_list *temp = lst; temp; temp = temp->next)
         printf("%d ", *(int *)(temp->data));
     printf("\n");
@@ -75,7 +77,7 @@ int main(void)
 
     return 0;
 }
-
+*/
 /*
 int main(void)
 {
@@ -164,7 +166,7 @@ int main(void)
 
 
 
-/*
+
 void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
 {
 		t_list	*aux;
@@ -193,7 +195,7 @@ void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
 		}
 }
 
-*/
+
 
 
 
@@ -323,7 +325,7 @@ void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
 		}
 }
 */
-/*
+
 int compare_data(void *a, void *b) {
 		// You can define your own comparison logic here
 		// For this example, we'll compare integers
@@ -372,4 +374,4 @@ int main() {
 		// Free memory (not shown in this example, but it's important to free allocated memory)
 
 		return 0;
-}*/
+}

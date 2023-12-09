@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 16:35:51 by brandebr          #+#    #+#             */
-/*   Updated: 2023/12/07 13:30:51 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/08 11:39:40 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,34 +29,32 @@ int		count(int n)
 		}
 		while (n > 0)
 		{
-				n /= 10;
 				c++;
+				n /= 10;
 		}
-		return (c);	
+		return (c);
 }
 
 char    *ft_itoa(int nbr)
 {
-		char	*res;
-		int		len;
 		int		i;
+		int		len;
+		char	*res;
 
 		i = 0;
 		len = count(nbr);
 		res = malloc(sizeof(char) * (len + 1));
-		if (!res)
-				free(res);
 		res[len] = '\0';
 		len--;
 		if (nbr == -2147483648)
 		{
-				res ="-2147483648";
+				res = "-2147483648";
 				return (res);
 		}
 		if (nbr < 0)
 		{
+				res[i] = '-';
 				nbr *= -1;
-				res[0] = '-';
 		}
 		while (nbr > 9)
 		{
@@ -65,13 +63,13 @@ char    *ft_itoa(int nbr)
 				len--;
 		}
 		res[len] = (nbr % 10) + '0';
-		return (res); 
+		return (res);
 }
 
 int		main(int argc, char **argv)
 {
 		int		n;
-	//	int		nc;
+//		int		nc;
 		char	*res;
 
 		n = 0;
@@ -86,6 +84,27 @@ int		main(int argc, char **argv)
 		}
 		return (0);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 int		nc(int n)

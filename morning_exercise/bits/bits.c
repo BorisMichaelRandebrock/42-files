@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 13:32:19 by brandebr          #+#    #+#             */
-/*   Updated: 2023/12/07 12:23:44 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/08 11:24:24 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ unsigned char   reverse_bits(unsigned char octet)
 				(((octet >> 3) & 1) << 4) |\
 				(((octet >> 4) & 1) << 3) |\
 				(((octet >> 5) & 1) << 2) |\
-				(((octet >> 6) & 1) << 1) | 
+				(((octet >> 6) & 1) << 1) |\
 				(((octet >> 7) & 1) << 0);
 }
 

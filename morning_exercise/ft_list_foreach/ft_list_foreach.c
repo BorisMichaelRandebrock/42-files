@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 17:59:22 by brandebr          #+#    #+#             */
-/*   Updated: 2023/12/07 19:17:40 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/08 10:10:08 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void    ft_list_foreach(t_list *begin_list, void (*f)(void *))
 {
-		t_list	*aux;
+		t_list *aux;
 
 		aux = begin_list;
 		while (aux)
@@ -33,11 +33,11 @@ int		main(void)
 		lst->data = ("Follow ");
 		lst->next = malloc(sizeof(t_list));
 		lst->next->data = ("the ");
-		lst->next->next= malloc(sizeof(t_list));
+		lst->next->next = malloc(sizeof(t_list));
 		lst->next->next->data = ("white ");
 		lst->next->next->next = malloc(sizeof(t_list));
-		lst->next->next->next->data = ("rabbi.");
-		ft_list_foreach(lst,(void *) printf);
+		lst->next->next->next->data = ("Rabbi.");
+		ft_list_foreach(lst, (void*)printf);
 		return (0);
 }
 
