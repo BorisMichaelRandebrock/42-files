@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 13:32:19 by brandebr          #+#    #+#             */
-/*   Updated: 2023/12/08 11:24:24 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/12 14:21:20 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 
 void print_bit(unsigned char octet)
 {
-		int		i;
+		int 	i;
 		char	bit;
 
 		i = 8;
 		while (i--)
 		{
 				bit = ((octet >> i) & 1) + '0';
-				write(1, &bit, 1);
+				write (1, &bit, 1);
 		}
 }
 
@@ -50,6 +50,15 @@ int	    is_power_of_2(unsigned int n)
 				return (0);
 		return (n & (n - 1)) == 0;
 }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -119,7 +128,7 @@ int	    is_power_of_2(unsigned int n)
 */
 int main(int argc, char **argv)
 {
-		unsigned char octet = 'h'; // Example input: 0010 0110
+		unsigned char octet = '1'; // Example input: 0010 0110
 		unsigned char reversed = reverse_bits(octet); // Should result in 0110 0100
 		unsigned char swapped;
 		int		pot;
