@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 13:52:35 by brandebr          #+#    #+#             */
-/*   Updated: 2023/12/07 14:06:28 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/15 18:03:20 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	pu(char c)
 
 int		ok(char c)
 {
-		if (c > 32 && c < 127)
+		if (c != ' ' && c != '\t' && c != '\0')
 				return (1);
 		return (0);
 }
@@ -34,8 +34,8 @@ void	last_word(char *str)
 		start = 0;
 		while (str[i])
 		{
-				if (!ok(str[i]) && ok(str[i + 1]))
-						start = i + 1;
+				if (ok(str[i]) && !ok(str[i- 1]))
+						start = i;
 				i++;
 		}
 		while (ok(str[start]))
