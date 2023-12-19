@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 16:35:51 by brandebr          #+#    #+#             */
-/*   Updated: 2023/12/08 11:39:40 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/18 12:39:35 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,14 @@ int		count(int n)
 
 char    *ft_itoa(int nbr)
 {
-		int		i;
-		int		len;
 		char	*res;
+		int		len;
+	//	int		i;
 
-		i = 0;
 		len = count(nbr);
 		res = malloc(sizeof(char) * (len + 1));
+		if (!res)
+				free(res);
 		res[len] = '\0';
 		len--;
 		if (nbr == -2147483648)
@@ -53,7 +54,7 @@ char    *ft_itoa(int nbr)
 		}
 		if (nbr < 0)
 		{
-				res[i] = '-';
+				res[0] = '-';
 				nbr *= -1;
 		}
 		while (nbr > 9)
@@ -69,7 +70,7 @@ char    *ft_itoa(int nbr)
 int		main(int argc, char **argv)
 {
 		int		n;
-//		int		nc;
+		int		nc;
 		char	*res;
 
 		n = 0;
@@ -77,8 +78,8 @@ int		main(int argc, char **argv)
 		if (argc == 2)
 		{
 				n = atoi(argv[1]);
-		//		nc = count(n);
-		//		printf("%i", nc);
+				nc = count(n);
+//				printf("amount of numbers: %i", nc);
 				res = ft_itoa(n);
 				printf("%s", res);
 		}

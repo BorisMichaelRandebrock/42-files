@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 10:24:04 by brandebr          #+#    #+#             */
-/*   Updated: 2023/12/12 17:41:21 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/14 14:28:33 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,177 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int		len(int nbr)
+{
+		int		i;
+
+		i = 0;
+		if (nbr == -2147483648)
+				return (11);
+		if (nbr < 0)
+		{
+				i++;
+				nbr *= -1;
+		}
+		while (nbr > 0)
+		{
+				nbr /= 10;
+				i++;
+		}
+		return (i);
+}
+
+char	*ft_itoa(int nbr)
+{
+		char	*res;
+		int		length;
+
+		length =  len(nbr);
+		res = malloc(sizeof(char) * (length + 1));
+		if (!res)
+				free(res);
+		res[length] = '\0';
+		length--;
+		if (nbr == -2147483648)
+		{
+				res = "-2147483648";
+				return (res);
+		}
+		if (nbr < 0)
+		{
+				res[0] = '-';
+				nbr *= -1;
+		}
+		while (nbr > 9)
+		{
+				res[length] = (nbr % 10) + '0';
+				nbr /= 10;
+				length--;
+		}
+		res[length] = (nbr % 10) + '0';
+		return (res);
+
+
+}
+int		 fprime(int	n)
+{
+		int		i;
+
+		i = 2;
+		if (n == 1)
+		{
+				printf("1");
+				return (0);
+		}
+		while (i <= n)
+		{
+				if (i == n)
+				{
+						printf("%i", i);
+						return (0);
+				}
+				if (n % i == 0)
+				{
+						printf("%i", i);
+						printf("*");
+						n /= i;
+						i = 1;					
+				}
+				i++;
+		}
+		return (0);
+}
+
+int		ok(char c)
+{
+		if (c > ' ' && c < 127)
+				return (1);
+		return (0);
+}
+
+void	rev_wstr(char *str)
+{
+		int		i;
+		int		start;
+		int		end;
+		int		wc;
+
+		i = 0;
+		wc = 0;
+		while (str[i])
+		{
+				if ((i == 0 && ok(str[i])) || (ok(str[i]) && !ok(str[i - 1])))
+						wc++;
+				i++;
+		}
+		i--;
+		while (i >= 0)
+		{
+				if ((ok(str[i]) && str[i + 1] == '\0') || (!ok(str[i + 1]) && ok(str[i])))
+				{
+						end = i;
+						start = end;
+						while (ok(str[start]))
+								start--;
+						start++;
+						while (start <= end)
+						{
+								printf("%c", str[start]);
+								start++;
+						}
+						wc--;
+						if (wc > 0)
+								printf(" ");
+				}
+				i--;
+		}
+}
+
+int		main(int argc, char **argv)
+{
+	//	char *res = NULL;
+		if (argc == 2)
+		{
+		//		int		number = atoi(argv[1]);
+		//		res = ft_itoa(number);
+		//		fprime(number);
+		rev_wstr(argv[1]);
+				printf("\n");
+		//		printf("%s\n", res);
+		}
+		return (0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 typedef struct s_list t_list;
 
 struct s_list
@@ -40,7 +211,7 @@ t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
 				else
 						lst = lst->next;
 			}
-		lst = start;
+	//	lst = start;
 		return (lst);
 }
 
@@ -78,7 +249,6 @@ int		main(void)
 				printf("%d\n", lst->data);
 				lst = lst->next;
 		}
-		printf("test\n");
 		lst = tmp;
 		sort_list(lst, cmp);
 		while (lst)
@@ -88,7 +258,7 @@ int		main(void)
 		}
 		return (0);
 }
-
+*/
 
 /*
 typedef struct    s_list

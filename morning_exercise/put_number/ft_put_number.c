@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 15:40:55 by brandebr          #+#    #+#             */
-/*   Updated: 2023/12/08 09:58:00 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/15 19:07:28 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
  void    ft_putnbr(int n)
 {
 		char	*num = "0123456789";
+		
+		if (n < 0)
+		{
+				write(1, "-", 1);
+			 n *= -1;
+		}
 
 		if (n > 9)
 				ft_putnbr(n / 10);
@@ -26,12 +32,10 @@
 void	hex(int n/*, int basei*/)
 {
 		char	num[] = "0123456789abcdef";
-
-		if (n > 16)
+		
+		if (n > 15)
 				hex(n / 16);
 		write(1, &num[n % 16], 1);
-		
-
 }
 
 
@@ -279,5 +283,13 @@ int	main(int argc, char **argv)
 			//	hex(bo, base);
 		}
 				write(1, "\n",1);
+		int decimalNumber = 43981; // 0xABCD in hexadecimal
+
+		write(1, "Decimal: ", 9);
+    	ft_putnbr(decimalNumber);
+    	write(1, "\nHexadecimal: ", 14);
+   		hex(decimalNumber);
+    	write(1, "\n", 1);
+
 		return (0);
 }

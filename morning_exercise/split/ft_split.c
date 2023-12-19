@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 10:52:36 by brandebr          #+#    #+#             */
-/*   Updated: 2023/12/08 12:26:39 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/18 12:18:02 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,56 +15,66 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+
+
+
+
+
+
+void	puc(char c)
+{
+		write(1, &c, 1);
+}
+
 int		ok(char c)
 {
-		if (c > 32 && c < 127)
+		if (c != ' ' && c != '\t')
 				return (1);
 		return (0);
 }
 
 int		wc(char *s)
 {
-		int		ws;
-		int 	i;
+		int		i;
+		int		w;
 
-		ws = 0;
 		i = 0;
+		w = 0;
 		while (s[i])
 		{
-				if ((i == 0 && ok(s[i])) || (!ok(s[i - 1]) && ok(s[i])))
-						ws++;
+				if ((i == 0 && ok(s[i])) || (ok(s[i]) && !ok(s[i - 1])))
+						w++;
 				i++;
 		}
-		return (ws);	
+		return (w);
 }
-
 
 char    **ft_split(char *str)
 {
 		char	**res;
-		int		len;
+		int		words;
 		int		w;
 		int		i;
 		int		j;
 		int		start;
 		int		end;
 
-		len = wc(str);
+		words = wc(str);
+		res = (char **)malloc(sizeof(char *) * (words + 1));
 		w = 0;
 		i = 0;
-		res = (char **)malloc(sizeof(char *) * (len + 1));
 		if (!res)
-				free(res);
-		while (w < len)
+				res = NULL;
+		while (w < words)
 		{
-				if ((i == 0 && ok(str[i])) || (ok(str[i]) && !ok(str[i -1])))
+				if ((i == 0 && ok(str[i])) || (ok(str[i]) && !ok(str[i - 1])))
 				{
-						start = i;
 						j = 0;
+						start = i;
 						end = start;
-						while (ok(str[end]))
+						while (str[end] && ok(str[end]))
 								end++;
-						res[w] = (char *)malloc(sizeof(char) * ((end - len) + 1));
+						res[w] = (char *)malloc(sizeof(char) * ((end - start) + 1));
 						if (!res[w])
 								free(res[w]);
 						while (start < end)
@@ -78,7 +88,97 @@ char    **ft_split(char *str)
 				}
 				i++;
 		}
-		res[w] = NULL;
+		return (res);
+}
+
+int		main(int argc, char **argv)
+{
+		char	**res;
+		int		i;
+
+		i = 0;
+		if (argc == 2)
+		{
+				res = ft_split(argv[1]);
+				while (res[i])
+						printf("%s\n", res[i++]);
+//				printf("number of words: %i\n", wc(argv[1]));
+		}
+		return (0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+int		ok(char c)
+{
+		if (c != ' ' && c != '\t' && c != '\0')
+				return (1);
+		return (0);
+}
+
+int		wc(char *s)
+{
+		int		i;
+		int		c;
+
+		i = 0;
+		c = 0;
+		while (s[i])
+		{
+				if ((i == 0 && ok(s[i])) || (ok(s[i]) && !ok(s[i - 1])))
+						c++;
+				i++;
+		}
+		return (c);
+}
+
+
+char    **ft_split(char *str)
+{
+		char	**res;
+		int		words;
+		int		w;
+		int		i;
+		int		j;
+		int		start;
+		int		end;
+
+		words =  wc(str);
+		res = (char **)malloc(sizeof(char *) * (words + 1));
+		i = 0;
+		w = 0;
+		while (w < words)
+		{
+				if ((i == 0 && ok(str[i])) || (ok(str[i]) && !ok(str[i - 1])))
+				{
+						j = 0;
+						start = i;
+						end = start;
+						while (ok(str[end]))
+								end++;
+						res[w] = (char *)malloc(sizeof(char) * ((end - start) + 1));
+						while (start < end)
+						{
+								res[w][j] = str[start];
+								start++;
+								j++;
+						}
+						res[w][j] = '\0';
+						w++;
+				}				
+				i++;
+		}
+		res[words] = NULL;
 		return (res);
 }
 
@@ -91,7 +191,9 @@ int		main(int argc, char **argv)
 		res = NULL;
 		if (argc == 2)
 		{
+//				printf("number of words: %i",wc(argv[1]));
 				res = ft_split(argv[1]);
+						printf("%s\n", res[i]);
 				while (res[i])
 				{
 						printf("%s\n", res[i]);
@@ -101,7 +203,7 @@ int		main(int argc, char **argv)
 		return (0);			
 }
 
-
+*/
 
 
 

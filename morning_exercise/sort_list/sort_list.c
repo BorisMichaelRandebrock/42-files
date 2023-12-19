@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 08:42:31 by brandebr          #+#    #+#             */
-/*   Updated: 2023/12/09 09:33:18 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/18 14:24:16 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,93 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int		cmp(int a, int b)
+{
+		if (a > b)
+				return (0);
+		return (1);
+}
+
+t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
+{
+		t_list	*start;
+		int		swap;
+
+		start = lst;
+		while (lst->next)
+		{
+				if	((*cmp)(lst->data, lst->next->data) == 0)
+				{
+						swap = lst->data;
+						lst->data = lst->next->data;
+						lst->next->data = swap;
+						lst = start;
+				}
+				else
+						lst = lst->next;
+		}
+		lst = start; 
+		return (lst);
+}
+
+int		main(void)
+{
+			t_list *ls;
+			int     numbs[] = {13, 13 ,12};		
+		
+			ls = malloc(sizeof(t_list));
+          ls->data = numbs[0];
+           ls->next = malloc(sizeof(t_list));
+           ls->next->data = numbs[1];
+           ls->next->next = malloc(sizeof(t_list));
+           ls->next->next->data = numbs[2];
+		   sort_list(ls, cmp);
+		   while (ls)
+		   {
+				   printf("%d\n", ls->data);
+				   ls = ls->next;
+		   }
+		   return (0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
 {
 		int		swap;
@@ -73,4 +160,4 @@ int main(void)
 		}
 		printf("NULL\n");
 		return 0;
-}
+}*/

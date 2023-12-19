@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 17:59:22 by brandebr          #+#    #+#             */
-/*   Updated: 2023/12/08 10:10:08 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/18 14:08:40 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,56 @@
 
 void    ft_list_foreach(t_list *begin_list, void (*f)(void *))
 {
-		t_list *aux;
+		t_list	*aux;
 
 		aux = begin_list;
 		while (aux)
 		{
-				if (aux->data)
-						(*f)(aux->data);
+				(*f)(aux->data);
 				aux = aux->next;
 		}
+}
+
+void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
+{
+		t_list	*aux;
+		t_list	*del;
+		t_list	*prev;
+
+		aux	= *begin_list;
+		prev = NULL;
+		while (aux)
+		{
+				if ((*cmp)(aux->data, data_ref) == 0)
+				{
+						del = aux;
+						if (prev == NULL)
+								*begin_list = aux->next;
+						else
+								prev->next = aux->next;
+						aux = aux->next;						
+				}
+				else
+				{
+						prev = aux;
+						aux = aux->next; 
+				}
+		}
+}
+
+int		cmp(void *u, void *d)
+{
+		int		*a = (int *)u;
+		int		*b = (int *)d;
+		return (*a - *b);
 }
 
 int		main(void)
 {
 		t_list	*lst;
+		t_list	*l;
+		int		num[] =  {5, 13, 5};
+		int		del = 5;
 
 		lst = malloc(sizeof(t_list));
 		lst->data = ("Follow ");
@@ -38,6 +74,18 @@ int		main(void)
 		lst->next->next->next = malloc(sizeof(t_list));
 		lst->next->next->next->data = ("Rabbi.");
 		ft_list_foreach(lst, (void*)printf);
+		l = malloc(sizeof(t_list));
+		l->data = &num[0];
+		l->next = malloc(sizeof(t_list));
+		l->next->data = &num[1];
+		l->next->next = malloc(sizeof(t_list));
+		l->next->next->data = &num[2];
+		ft_list_remove_if(&l, &del, cmp);
+		while (l)
+		{
+				printf("%d",*(int *)l->data);
+				l = l->next;
+		}
 		return (0);
 }
 
