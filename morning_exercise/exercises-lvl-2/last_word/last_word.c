@@ -1,38 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   last_word.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/19 16:25:46 by brandebr          #+#    #+#             */
-/*   Updated: 2023/12/20 10:03:53 by brandebr         ###   ########.fr       */
+/*   Created: 2023/12/20 17:33:24 by brandebr          #+#    #+#             */
+/*   Updated: 2023/12/20 17:47:16 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
+#include <unistd.h>
 
-int    ft_strcmp(char *s1, char *s2)
+void	bu(char	c)
 {
-		int		i;
-
-		i = 0;
-		while (s1[i])
-		{
-				if (s1[i] != s2[i])
-						return (s1[i] - s2[i]);
-				i++;
-		}
-		return (s1[i] - s2[i]);
+		write(1, &c, 1);
 }
 
-int		main(void)
+int		ok(char c)
 {
-		char	*s = "somwhere over the rainbow ";
-		char	*s1 = "somwhere ober the rainbow";
-
-		printf("%i", strcmp(s, s1));
-		printf("%i", ft_strcmp(s, s1));
+		if (c != ' ' && c != 't' && c != '\0')
+				return (1);
 		return (0);
+}
+
+void	last_word(char *s)
+{
+		int		i;
+		int		start;
+
+		i = 0;
+		start = 0;
+		while (s[i])
+		{
+				if ((i == 0 && ok(s[i])) || (ok(s[i]) && !ok(s[i - 1])))
+						start = i;
+				i++;
+		}
+		while (ok(s[start]))
+				bu(s[start++]);
+}
+
+int		main(int argc, char **argv)
+{
+		if (argc == 2)
+				last_word(argv[1]);
+		bu('\n');
 }

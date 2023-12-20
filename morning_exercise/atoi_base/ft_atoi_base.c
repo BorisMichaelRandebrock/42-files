@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 12:56:13 by brandebr          #+#    #+#             */
-/*   Updated: 2023/12/18 13:31:05 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/20 11:56:32 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,9 @@ int	ft_atoi_base(const char *str, int str_base)
 		i = 0;
 		res = 0;
 		sign = 1;
-		if (str[0] == '-')
+		while (str[i] == ' ' || str[i] == '\t')
+				i++;
+		if (str[i] == '-')
 		{
 				i++;
 				sign = -1;
@@ -303,6 +305,7 @@ int		main(int argc, char **argv)
 		if (argc >= 3)
 		{
 				printf("%i", ft_atoi_base(argv[1], atoi(argv[2])));
+				printf("%i", atoi(argv[1]));
 		}
 		else 
 				printf("please enter the number and its base...");
