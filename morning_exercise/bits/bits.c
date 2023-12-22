@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 13:32:19 by brandebr          #+#    #+#             */
-/*   Updated: 2023/12/18 12:59:27 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/22 18:46:08 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void print_bit(unsigned char octet)
 		int		i;
 		char	bit;
 
-		i = 0;
+		i = 8;
 		while (i--)
 		{
 				bit = ((octet >> i) & 1) + '0';
