@@ -6,12 +6,135 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 17:59:22 by brandebr          #+#    #+#             */
-/*   Updated: 2023/12/18 14:08:40 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/21 11:28:05 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 
+void    ft_list_foreach(t_list *begin_list, void (*f)(void *))
+{
+		t_list	*aux;
+
+		aux = begin_list;
+		while (aux)
+		{
+				(*f)(aux->data);
+				aux = aux->next;
+		}
+}
+
+void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
+{
+		t_list	*aux;
+		t_list	*del;
+		t_list	*prev;
+
+		aux = *begin_list;
+		prev = NULL;
+		while (aux)
+		{
+				if ((*cmp)(aux->data, data_ref) == 0)
+				{
+						del = aux;
+						if (prev == NULL)
+								*begin_list = aux->next;
+						else
+								prev->next = aux->next;
+						aux = aux->next;
+						free(del);
+				}
+				else
+				{
+						prev = aux;
+						aux = aux->next;
+				}
+		}
+}
+
+int		cmp(void *a, void *b)
+{
+		int	*n1 = (int *)a;
+		int  *n2 = (int *)b;
+		return (*n1 - *n2);
+}
+
+int		main(void)
+{
+		t_list	*lst;
+		t_list	*ls;
+		int		num[] = {12, 13, 12};
+		int		del = 12; 
+
+		lst = malloc(sizeof(t_list));
+		lst->data = ("Follow the ");
+		lst->next = malloc(sizeof(t_list));
+		lst->next->data = ("white ");
+		lst->next->next = malloc(sizeof(t_list));
+		lst->next->next->data = ("Rabbi.\n");
+		ft_list_foreach(lst, (void *)printf);
+		ls = malloc(sizeof(t_list));
+		ls->data = &num[0];
+		ls->next = malloc(sizeof(t_list));
+		ls->next->data = &num[1];
+		ls->next->next = malloc(sizeof(t_list));
+		ls->next->next->data = &num[2];
+		lst = ls;
+		while (ls)
+		{
+				printf("%i\n", *(int *)ls->data);
+				ls = ls->next;
+		}
+		ls = lst;
+		printf("new list with number removed:\n");
+		ft_list_remove_if(&ls, &del, cmp);
+		while (ls)
+		{
+				printf("%i\n", *(int *)ls->data);
+				ls = ls->next;
+		}
+		while (ls)
+		{
+				printf("%d",*(int *)ls->data);
+				ls = ls->next;
+		}
+
+		ft_list_foreach(ls, (void *)printf);
+		return (0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 void    ft_list_foreach(t_list *begin_list, void (*f)(void *))
 {
 		t_list	*aux;
@@ -80,6 +203,12 @@ int		main(void)
 		l->next->data = &num[1];
 		l->next->next = malloc(sizeof(t_list));
 		l->next->next->data = &num[2];
+		while (l)
+		{
+				printf("%d",*(int *)l->data);
+				l = l->next;
+		}
+		printf("\n");
 		ft_list_remove_if(&l, &del, cmp);
 		while (l)
 		{
@@ -88,7 +217,7 @@ int		main(void)
 		}
 		return (0);
 }
-
+*/
 
 
 

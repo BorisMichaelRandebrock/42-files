@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:59:25 by brandebr          #+#    #+#             */
-/*   Updated: 2023/12/20 16:49:20 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/21 12:58:36 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	inter(char *s1, char *s2)
 		char	new[256];
 		int		i;
 		int		j;
-		(void)s2;
 
 		new[0] = '\0';
 		i = 0;
@@ -55,8 +54,9 @@ void	inter(char *s1, char *s2)
 		j = 0;
 		while (new[i])
 		{
-				if (check(new, new[i]) == 1)
-						bo(new[i++]);
+				if (check(s2, new[i]) == 1)
+						bo(new[i]);
+				i++;
 		}
 }
 

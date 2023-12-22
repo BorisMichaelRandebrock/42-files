@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 08:42:31 by brandebr          #+#    #+#             */
-/*   Updated: 2023/12/18 14:24:16 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/21 13:34:27 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,54 @@ int		cmp(int a, int b)
 		return (1);
 }
 
+t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
+{
+		t_list	*start;
+		int		swap;
+
+		start = lst;
+		while (lst->next)
+	 	{
+			if ((*cmp)(lst->data, lst->next->data) == 0)
+				{
+						swap = lst->data;
+						lst->data = lst->next->data;
+						lst->next->data = swap;
+						lst = start;
+				}
+				else
+						lst = lst->next;
+		}
+		lst = start;
+		return (lst);
+}
+
+int	main(void)
+{
+		t_list *l;
+
+		l = malloc(sizeof(t_list));
+		l->data = (13);
+		l->next = malloc(sizeof(t_list));
+		l->next->data = (12);
+		l->next->next = malloc(sizeof(t_list));
+		l->next->next->data = (11);
+//		sort_list(l, cmp);
+		while (l)
+		{
+				printf("%d\n", l->data);
+				l = l->next;
+		}
+		return (0);
+}
+
+
+
+
+
+
+
+/*
 t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
 {
 		t_list	*start;
@@ -63,6 +111,7 @@ int		main(void)
 		   return (0);
 }
 
+*/
 
 
 

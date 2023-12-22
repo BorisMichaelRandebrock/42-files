@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 16:35:51 by brandebr          #+#    #+#             */
-/*   Updated: 2023/12/18 12:39:35 by brandebr         ###   ########.fr       */
+/*   Updated: 2023/12/21 12:41:41 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,71 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+int		len(int n)
+{
+		int	c;
 
+		c = 0;
+		if (n == -2147483648)
+				return (11);
+		if (n < 0)
+		{
+				c++;
+				n *= -1;
+		}
+		while (n > 0)
+		{
+				n /=  10;
+				c++;
+		}
+		return (c);
+}
+
+char	*ft_itoa(int nbr)
+{
+		int		length = len(nbr);
+		char	*res;
+
+		res = malloc(sizeof(char) * (length + 1));
+		if (!res)
+				free(res);
+		if (nbr == -2147483648)
+		{
+				res = "-2147483648";
+				return (res);
+		}
+		if (nbr < 0)
+		{
+				res[0] = '-';
+				nbr *= -1;
+		}
+		res[length] = '\0';
+		length--;
+		while (nbr > 9)
+		{
+				res[length] = (nbr % 10) + '0';
+				nbr /= 10;
+				length--;
+		}
+		res[length] = (nbr % 10) + '0';
+		return (res);
+}
+
+int		main(int argc, char **argv)
+{
+		int 	num = atoi(argv[1]);
+//		int		i = 0;
+		char	*res = NULL;
+		
+		if (argc == 2)
+		{
+				res = ft_itoa(num);
+				printf("%s\n", res);
+		}
+		return (0);
+}
+
+/*
 int		count(int n)
 {
 		int		c;
@@ -85,7 +149,7 @@ int		main(int argc, char **argv)
 		}
 		return (0);
 }
-
+*/
 
 
 
