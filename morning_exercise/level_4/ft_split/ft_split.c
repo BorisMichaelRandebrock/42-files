@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 19:31:57 by brandebr          #+#    #+#             */
-/*   Updated: 2024/01/04 19:49:55 by brandebr         ###   ########.fr       */
+/*   Updated: 2024/01/04 19:59:41 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char    **ft_split(char *str)
 				while (ok(str[end]))
 						end++;
 				res[w] = (char *)malloc(sizeof(char) * ((end - start) + 1));
-				while (start <= end)
+				while (start < end)
 				{
 						res[w][j] = str[start];
 						start++;
