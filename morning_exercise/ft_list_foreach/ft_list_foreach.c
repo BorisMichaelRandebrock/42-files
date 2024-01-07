@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 17:59:22 by brandebr          #+#    #+#             */
-/*   Updated: 2023/12/21 11:28:05 by brandebr         ###   ########.fr       */
+/*   Updated: 2024/01/07 13:36:07 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void    ft_list_foreach(t_list *begin_list, void (*f)(void *))
 		}
 }
 
-void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
+void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)(void *, void *))
 {
 		t_list	*aux;
 		t_list	*del;
