@@ -6,7 +6,7 @@
 /*   By: brandebr <brandebr@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 13:57:33 by brandebr          #+#    #+#             */
-/*   Updated: 2024/01/07 14:04:42 by brandebr         ###   ########.fr       */
+/*   Updated: 2024/01/09 11:23:06 by brandebr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,3 @@ void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
 				}
 		}
 }
-
